@@ -1,6 +1,6 @@
 ## Overview
 
-## Database Categories and Categories
+## Database Categories and Selection
 
 ## Methods Used and Examples
 
