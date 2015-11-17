@@ -7,18 +7,16 @@
 
 ## [Persistence and Durability](persistance.md)
 
-## Handling failure 
+## [Handling failure](handling_failure.md) 
 
-## Backup
+## [Backup](backup.md)
 
-## Security
+## [Security](security.md)
 
-## Upgrading
+## [Upgrading](upgrade.md)
 
 ## Availability 
 
 ## Data Integrity
 
-## Performance  
-
-## Data migration 
+## [Data migration ](data migration.md)
