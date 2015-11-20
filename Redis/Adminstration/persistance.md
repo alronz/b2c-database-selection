@@ -41,3 +41,12 @@ Depending on your durability requirements, you need to set the fsync options. Re
 ##### Which one to use
 
 Usually the best thing to do is to combine both options to get reliable and durable persistency for your application. This means that you use snapshotting to get a snapshot of your data from time to time which can be used in case of disaster recovery, backups or in case of issues in your AOF. At the same time, you use AOF to get full durability. This is of course depends on your application requirements because in some cases you care only about performance or you can live with some minutes data lose.
+
+
+#### ACID Support
+
+Here I am going to discuss how Redis the ACID properties:
+
+Atomicity and consistency can be guaranteed by executing a group of commands either using the pipelining support (MULTI/EXEC/WATCH/UNWATCH blocks ) or by using a Lua script.
+Isolation is always guaranteed at command level, and for group of commands it can be also guaranteed by MULTI/EXEC block or a Lua script.
+Full Durability can be also guaranteed when using AOF with executing fsync with each new command as explained before.

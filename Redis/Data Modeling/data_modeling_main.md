@@ -4,6 +4,8 @@
 
 ## [Relational Data](relational_data.md)
 
+## [Referential Integrity ](referential_integerity.md)
+
 ## Normalization 
 
 ## Data Evolution and Versioning

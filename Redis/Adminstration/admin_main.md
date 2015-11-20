@@ -5,7 +5,7 @@
 
 ## [Scalability](scalability.md)
 
-## [Persistence and Durability](persistance.md)
+## [Persistence, and ACID Support](persistance.md)
 
 ## [Handling failure](handling_failure.md) 
 
@@ -16,7 +16,5 @@
 ## [Upgrading](upgrade.md)
 
 ## Availability 
-
-## Data Integrity
 
 ## [Data migration ](data migration.md)
