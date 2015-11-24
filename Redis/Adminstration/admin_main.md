@@ -15,6 +15,6 @@
 
 ## [Upgrading](upgrade.md)
 
-## Availability 
+## [Availability](availability.md) 
 
 ## [Data migration ](data migration.md)
