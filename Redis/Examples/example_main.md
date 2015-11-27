@@ -5,5 +5,7 @@
 
 ## [Session Management Service](session_management.md)
 
-## Cache Service
+## [Cache Service](cache_management.md)
+
+## Other Redis Examples
 
