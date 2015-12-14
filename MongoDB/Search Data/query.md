@@ -1,3 +1,5 @@
+#### [back](search_data_main.md)
+
 MongoDB supports one simple method db.collection.find() to search for documents inside a certain collection. This method accepts two inputs, the first input is the selection criteria for you query and the second input is an optional to specify the fields to be returned or what is called the projections. This method will return a cursor that can be used to iterator through all the returned documents. For more information about the cursor, you can have a look at [MongoDB documentations](https://docs.mongodb.org/manual/core/cursors/). In the following sections, I will show how you can use MongoDB to run parametrised, range, array, and embedded documents queries. 
 
 #### Parameterised Queries

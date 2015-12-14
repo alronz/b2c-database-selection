@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 Sometimes we want to migrate our old data or insert a large amount of preexistence data into our Redis server. Inserting a millions of keys of data to Redis at short amount of time and without blocking the server operations for other clients is important topic. Luckily Redis supports a pipe mode that was designed in order to perform mass insertion. Using this utility is so simple, you just need to put all the data you want to insert in a file and then performs the below command:
 
 ````

@@ -1,3 +1,5 @@
+#### [back](basic_features_main.md)
+
 On the level of a single document, MongoDB guarantees that the write operation is atomic. This means that if you try to update, insert or delete a single document in MongoDB, the operation will be applied in the form of "all or nothing". However if you try to do a write operations for multiple documents, the operations will be applied atomically for each single document alone but the operations as whole may interleave and not atomic. Hence the transaction is possible using MongoDB if you do it in a single document and not supported if you plan to do it across multiple documents.  
 
 Although MongoDB supports a way to isolate a write operation if it will be applied across multiple documents using the $isolated option as seen in the below example, this is not always enough to support transaction across multiple documents. 

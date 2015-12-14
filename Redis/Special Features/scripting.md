@@ -1,3 +1,5 @@
+#### [back](special_features_main.md)
+
 Redis allows you to execute Lua scripts inside the Redis server.Scripting Redis with Lua is usefull and can be used to avoid some common ptfalls that slow down development or reduce performance. To load the script to Redis server you can use either EVAL or EVALSHA commands which will evaluate the scripts using the Lua interpreter and load it. By using EVAL you can simply load a Lue program with no need to define a Lue function and you can pass arguements to the Lue program as redis keys. Example is given below :
 
 ````

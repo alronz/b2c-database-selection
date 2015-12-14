@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 Doing backup in Redis is so simple since it is basically taking snapshot of your dataset which already supported by Redis. Your data will be stored in an RDB file called dump.rdb file and will be stored in your redis directory. As has been explained before, you can configure Redis to take a snapshot of your data periodically as configured in your configuration file. Also you can get a snapshot manually by running the command SAVE or BGSAVE to be run as background process. To restore your data, you just need to move this dump file to your Redis directory and then start up your server and that will be all. If you don't know your Redis directory, just run the below command:
 
 ````

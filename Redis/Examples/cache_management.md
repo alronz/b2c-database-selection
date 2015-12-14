@@ -1,3 +1,5 @@
+#### [back](example_main.md)
+
 For many websites nowadays, large part of the pages are rarely changing. To improve the performance for the website, a caching mechanism needs to be used when generating web pages from server side. As a very fast in-memory database, Redis can be easily used as a cache service. There are many production ready cache implementations available which were build by using Redis. Also Redis can be configured to act only as a cache and support directly out of the box the popular cache eviction algorithms such as LRU and others. However in this example we are showing how to build the basic functionalities of a cache service using Redis. This service will support the below rest API:
 
 ![image](CacheManagement.png =700x70)

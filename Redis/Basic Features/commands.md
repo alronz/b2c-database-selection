@@ -1,4 +1,9 @@
 
+
+
+#### [back](basic_features_main.md)
+
+
 #### Commands on Key
 
 We start with the "DEL" command that can be used to delete a single or multiple keys as shown below. A key is ignored if it doesn't exist. 

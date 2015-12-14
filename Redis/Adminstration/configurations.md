@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 As we already mentioned in the installation section, Redis can start without creating a configuration file and then it will take its built-in default configurations. For production environment you will need to choose your own configuration paramers depending on your settings. The Redis configuration is called redis.confi and will contain configuration with the below format:
 
 ````

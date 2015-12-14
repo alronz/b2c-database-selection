@@ -1,4 +1,4 @@
-
+#### [back](getting_started_main.md)
 
 Redis is very easy to install and it will take only couple of minutes for you to install it on your machine. This is because it comes with a simple shell that provides you with everything you need and it doesn't have any external dependencies that you need to consider before installation.
  

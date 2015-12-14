@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 Redis provides two options to persist data to disk. The first option is called snapshotting or RDB which takes a snapshot of the data that exists at a certain configured moment in time and store it to disk. The second option is called append-only file or AOF which simply works by logging the operations that modifies the data (write operations) into a log file in disk. Processing this log file later if needed will produce the same dataset that was in memory. More details about these two options and how to configure them will be explained in the following sections.
 
 #### Snapshotting or RDB Persistence

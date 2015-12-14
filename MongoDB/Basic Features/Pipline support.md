@@ -1,3 +1,5 @@
+#### [back](basic_features_main.md)
+
 As explained in the [Query Language section](commands.md), MongoDB provides methods to update,remove,replace or insert multiple documents at the same time such as db.collection.insertMany(), db.collection.updateMany(), and db.collection.deleteMany(). In addition, MongoDB supports another method that can be used to execute a bulk of write operations such as insert, update and delete at the same time. In the following section, I will explain how to do a bulk write in MongoDB.
 
 ####  db.collection.bulkWrite()

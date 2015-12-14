@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 Redis doesn't support that you do online binary upgrades which means that the server must restart and the clients can't connect to it during the upgrade window. However there are some ways that you can use to support online upgrade. One way is to start a slave server and direct all the clients to it and meanwhile you do an upgrade to the master. After the upgrade is finished in the master, we can stop the slave server and then redirect the clients requests again to the master server. An example is shown below how to do it step by step:
 
 First we assume that the master server runs on the default port which 6379. Then we start another slave server with the below command:

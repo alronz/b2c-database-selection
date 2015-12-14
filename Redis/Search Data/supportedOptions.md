@@ -1,3 +1,5 @@
+#### [back](search_data_main.md)
+
 In this section, I will talk about how Redis supports some common query options such as count, max, min, sum, average , and others.
 
 ##### Count

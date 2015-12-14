@@ -1,3 +1,5 @@
+#### [back](data_modeling_main.md)
+
 Unlike relational databases where you should define a table schema before inserting any data, MongoDB is schemaless and its collections don't enforce documents structure. Hence data modelling is more flexible and you have more choices to make. 
 
 How to model your data into MongoDB's documents is defined based on many criteria and depended a lot on your application requirements and the underline data structure.  Important criteria is what your data access patterns such as how do you query and update your data. Another criteria are how is your data look like and what are your application needs.

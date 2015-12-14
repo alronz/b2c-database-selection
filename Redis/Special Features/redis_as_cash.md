@@ -1,3 +1,5 @@
+#### [back](special_features_main.md)
+
 If your plan is to use Redis just as a cache system, then instead of expiring keys manually you can just let Redis take care of this automatically. Redis provides a way to easily configure your Redis server to act as a cache.  For instance you can use the below configurations to allow for a maximum of 2mb memory limit and make all keys expire automatically:
 
 

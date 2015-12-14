@@ -1,3 +1,5 @@
+#### [back](search_data_main.md)
+
 MongoDB supports many query options that can be applied on query operations such as skip(), limit(), min(), max() , and count(). For a complete list of all the options, please have a look at [MongoDB documentations](https://docs.mongodb.org/v3.0/reference/method/js-cursor/). I will show below how to use the most popular options. 
 
 ##### count()

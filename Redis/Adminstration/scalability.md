@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 In this section we will talk about how good and easy is Redis when it comes to scalability. The section will be divided into four parts to explain how to scale reads, writes , configurations, and complex queries.
 
 ### Scaling Reads

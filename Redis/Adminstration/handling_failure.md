@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 If Redis server confronted with some system failures, there are tools available to recover as long as the snapshotting or the append-only file persistence methods are used. Redis provides two commands that can be used to verify the status of a snapshot or the AOF. The commands are redis-check-aof and redis-check-dump. An example is shown below:
 
 ````

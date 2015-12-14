@@ -1,3 +1,5 @@
+#### [back](search_data_main.md)
+
 Since Redis is a key-value store, the key acts as the primary index in all data structure. Redis doesn't support internally other type of indexes such secondary and compound indexes. However, secondary and compound indexes can be implemented and maintained manually by the clients using sets and sorted sets.  In the below section I will show how to use primary, secondary and compound indexes in Redis.
 
 Although creating secondary indexes and compound indexes is still possible somehow using sets and sorted sets, maintaining theses indexes manually at each write operation is not user friendly and is open for human errors. 

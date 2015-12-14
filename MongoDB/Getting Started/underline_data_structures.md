@@ -1,3 +1,5 @@
+#### [back](getting_started_main.md)
+
 MongoDB stores its data in a document which is a data structure similar to the structures that maps values to keys such as hashes and dictionaries. These documents contain a JSON like data or what is called a BSON data. Many documents can be grouped into a one container called a collection which is similar to the table concept in the traditional databases. 
 
 Below I will explain the three main concepts used in MongoDB which are the documents, collection and the BSON format.

@@ -1,3 +1,5 @@
+#### [back](getting_started_main.md)
+
 ## 1- Redis Cookbook (O'Reilly Media, 2011) by Tiago Macedo and Fred Oliveira.
 ## 2- [Redis Documentations](http://redis.io/documentation)
 ## 3- Redis in Action (Manning, 2013) by Josiah L. Carlson

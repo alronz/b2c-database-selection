@@ -1,3 +1,5 @@
+#### [back](admin_main.md)
+
 Securing your Redis server from external threats is so important since if your server is exposed to the outsider world, a single command like FLUSHALL can delete all the data you have. This is why your Redis server shouldn't be exposed to the outside world and unauthorised requests should be denied. There should be always a layer between Redis server and the clients. For example a web application layer that provides ACLs and validating users and deciding which actions to be performed against Redis instance. Your Redis server can be also configured to be bind to only one IP using the below command:
 
 ````

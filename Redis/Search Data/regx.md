@@ -1,3 +1,5 @@
+#### [back](search_data_main.md)
+
 Redis supports some search commands that uses regular expressions such as KEYS which searches all keys in a Redis instance, and SCAN which is used to search and iterate through all keys and values (SSCAN, HSCAN, and ZSCAN are the same but specific for each Redis data type).
 
 KEYS and SCAN can use glob-style regular expression patterns. Example of what can be used is shown below:

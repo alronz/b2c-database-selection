@@ -1,3 +1,6 @@
+
+#### [back](basic_features_main.md)
+
 Redis provides a partial transactions support and can even provide almost full transactions when used with its built-in persistance feature as will be explained [later](../Adminstration/persistance.md).  
 
 Redis is a single threaded application which means that when a command is executed, it will be always the only one. So the idea behind transactions support in Redis is to wrap the transaction commands and execute them all  as a single command. This is done by using MULTI/EXEC commands, you start the transaction by using MULTI command, then all the following commands will be queued. After all transaction commands are queued, they will be executed all as a single command using the EXEC command. The transaction commands will be executed sequentially and it will never happen that another command issued by another client execute in the middle.

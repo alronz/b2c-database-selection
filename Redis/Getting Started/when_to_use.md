@@ -1,3 +1,4 @@
+#### [back](getting_started_main.md)
 
 Generally many users prefer to choose redis or any other in-memory database to store their data only when performance or the supported data structures used in Redis is necessary. Otherwise they tend to use other database types for data where slower performance is not a problem or when the data is so big to fit in memory economically. 
 Redis is a high performance database that can be scaled easily to hundreds of gigabytes of data and millions of requests per second. It also provides on-disk persistence and supports very unique data structures which makes it suitable for a variety of applications such as caching, as a message broker, as a chat server, in session management, as a distributed lock system, to implement queues, as a logging system, in any counting related applications,  in real time analytics, to implement leaderboards, as a voting system and many other applications.
