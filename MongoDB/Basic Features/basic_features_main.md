@@ -1,10 +1,10 @@
-#### [back](../Redis_Main.md)
+#### [back](../Mongo_Main.md)
 
 
 ## [Query Language](commands.md)
 
 ## [Transaction Support](transaction_support.md)
 
-## [Pipeline Support](Pipline support.md)
+## [Bulk Support](Pipline support.md)
 
 ## [Refernces](refernces.md)

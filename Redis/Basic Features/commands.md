@@ -1,14 +1,14 @@
 
-* #### Commands on Key
+#### Commands on Key
 
-DEL command can be used to delete a single or multiple keys as shown below. A key is ignored if it doesn't exist. 
+We start with the "DEL" command that can be used to delete a single or multiple keys as shown below. A key is ignored if it doesn't exist. 
 
 ````
 redis> DEL key1 key2 key3
 (integer) 3
 ````
 
-EXISTS is another command that can be used to check if a singly or multiple keys exists.
+"EXISTS" is another command that can be used to check if a single or multiple keys exists.
 
 
 ````
@@ -16,7 +16,7 @@ redis> EXISTS key1 key2
 (integer) 2
 ````
 
-KEYS pattern is used to search keys and returns all keys that match the given pattern. You should pay attention when using this command on a production environment since it will reduce the system performance because it has a time complexity of O(N).
+"KEYS pattern"" is used to search keys and returns all keys that match the given pattern. You should pay attention when using this command on a production environment since it will impact the system performance severely because it has a time complexity of O(N).
 
 ````
 redis> KEYS *o*
@@ -24,7 +24,7 @@ redis> KEYS *o*
 2) "four"
 ````
 
-RENAME is used to rename the key. RENAMENX is used to rename key only if the new key name doesn't exists. 
+"RENAME" is used to rename the key. "RENAMENX" is another command used to rename key only if the new key name doesn't exists.  Both commands are mainly used for security purposes to hide the commands in case of an unauthorised access.
 
 
 ````
@@ -36,7 +36,7 @@ OK
 redis> RENAMENX mykey myotherkey
 (integer) 0 // myotherkey already exists
 ````
-TYPE is used to get the underline data type of the key.
+"TYPE" is a command to be used if you want to get the underline data type of a particular key.
 
 ````
 redis> TYPE key1
@@ -45,9 +45,9 @@ redis> TYPE key2
 list
 ````
 
-* #### Commands on String
+#### Commands on String
 
-GET & SET are two commands that can be used to get a value by a key or to set the a value by a key and will overwrite its value if exists. However SETNX will set the value only if not exists. Also available MGET,MSET,MSETNX to get or set multiple keys at the same time.
+"GET" and "SET" are two commands that can be used to retrieve/set the value of a certain key. When you use "SET", it will overwrite the value if it already exists. However "SETNX" will set the value only if it doesn't exist. Other similar commands are "MGET,MSET,MSETNX" which are used to get or set multiple keys at the same time.
 
 ````
 redis> SET mykey "Hello"
@@ -64,9 +64,11 @@ redis> SETNX otherKey "AnotherWord"
 (integer) 1
 ````
 
-INCR,DECR are two commands that can be used to increment or decrement the the integer number stored inside the string. INCRBY,DECRBY can also be used to increment or decrement by a certain value.
+"INCR,DECR" are two commands that can be used to increment or decrement the the integer/floating number stored inside the string by one. "INCRBY,DECRBY" can also be used to increment or decrement by a certain value.
 
 ````
+redis> SET mykey 10
+OK
 redis> INCR mykey
 (integer) 11
 redis> DECR mykey
@@ -77,17 +79,19 @@ redis> DECRBY mykey 2
 (integer) 10
 ````
 
-GETRANGE & SETRANGE are similar to substr and replace functions in javascript which get or set a substring stored in a key based on a particular range.
+"GETRANGE,SETRANGE" are similar to substr and replace functions in javascript which get or set a substring stored in a key based on a particular range.
 
 ````
 redis> SET mykey "This is a string"
 OK
 redis> GETRANGE mykey 0 3
 "This"
-redis> SETRANGE mykey 0 "Redis"
+redis> SETRANGE mykey 0 "That"
 (integer) 16
+redis> GET mykey
+"That is a string"
 ````
-Finally APPEND is used to appends a value to the end of a string if alreadys exists.
+Finally the "APPEND" command is used to appends a value to the end of a string if the string already exists.
 
 ````
 redis> APPEND mykey "Hello"
@@ -96,7 +100,7 @@ redis> APPEND mykey "Hello"
 
 * #### Commands on Lists
 
-LPOP,LPUSH,RPOP,RPUSH are the most important commands on lists which are used to insert or remove the first or last element in the list. BLPOP,BLPUSH,BRPOP,BRPUSH are doing the same but are the blocking version which means it blocks the connection when there are no elements to pop or push from the given list.
+"LPOP,LPUSH,RPOP,RPUSH" are the most important commands on lists which are used if your want to insert or remove the first or last element in the list. "BLPOP,BLPUSH,BRPOP,BRPUSH" are doing the same but are the blocking version which means it blocks the connection when there are no elements to pop or push from the given list.
 
 ````
 redis> RPUSH mylist "one"
@@ -111,7 +115,7 @@ redis> RPOP mylist
 "three"
 ````
 
-LRANGE is used to get elements by specific range.
+"LRANGE" is used to get elements within a specific range.
 
 ````
 redis> RPUSH mylist "one"
@@ -124,21 +128,21 @@ redis> LRANGE mylist 0 0
 1) "one"
 ````
 
-LLEN returned the length of the list.
+"LLEN" returns the length of the list.
 
 ````
 redis> LLEN mylist
 (integer) 2
 ````
 
-LTRIM is used to remove element from the list by a range.
+"LTRIM" is used to remove elements from the list by a certain range.
 
 ````
 LPUSH mylist someelement
-LTRIM mylist 0 99 // remove the first 100 elements of the list
+LTRIM mylist 0 99 // Remove the first 100 elements of the list
 ````
 
-LINDEX to get an element at a specific index. This operation has a time complexity O(N) and might be slow for large lists.
+"LINDEX" to get an element at a specific index. This operation has a time complexity O(N) and might be slow for large lists.
 
 ````
 redis> LINDEX mylist 0
@@ -146,9 +150,9 @@ redis> LINDEX mylist 0
 ````
 
 
-* #### Commands on Hashes
+#### Commands on Hashes
 
-HGET,HSET,HMGET,HMSET are similar to string commands, they can be used to get or set a single or multiple value(s) of a field(s) inside the hash. HSETNX is also used to set a value of a field inside the hash only if not exists.
+"HGET,HSET,HMGET,HMSET" commands are similar to string commands, they can be used to get or set a single or multiple value(s) of a field(s) inside the hash. "HSETNX" is also used to set a value of a field inside the hash only if it doesn't exist.
 
 ````
 redis> HSET myhash field1 "foo"
@@ -157,7 +161,7 @@ redis> HGET myhash field1
 "foo"
 ````
 
-HGETALL is used to get all fields and their values inside the hash while HKEYS or HVALS are used to get only either fields or their values.
+"HGETALL" is used to get all fields and their values inside a hash while "HKEYS" or "HVALS" are used to get only either all the field keys or all the values.
 
 ````
 redis> HGETALL myhash
@@ -173,7 +177,7 @@ redis> HKEYS myhash
 2) "field2"
 ````
 
-HEXISTS is used to check if a certain field has a certain value, HINCREBY or HINCREBYFLOAT are used to increment the integer or float value stored inside a certain field. Finaly HDEL is used to delete a specific field inside the hash.
+"HEXISTS" is used to check if a certain field has a certain value, "HINCREBY" or "HINCREBYFLOAT" are used to increment the integer or float value stored inside a certain field. Finally HDEL is used to delete a specific field inside the hash.
 
 ````
 redis> HEXISTS myhash field1
@@ -183,10 +187,12 @@ redis> HINCRBY myhash field 1
 redis> HDEL myhash field1
 (integer) 1
 ````
+In order to do operations on the values stored in Redis such as add,update, get or remove, a set of commands for each data type are provided. Those commands can be executed on [bulk](Pipline support.md) and a partial [transaction](transaction_support.md) is supported  as will be explained later in details. Executing these commands can be done using the built-in client "redis-cli" or by using one of the supported [clients](http://redis.io/clients) specific for many programming languages. Redis has a relatively short list of commands that can be easily learned in few hours. In the following sections I will explain the popular commands for each data type including commands on the "key". For a complete list of all the commands available in Redis, please check [Redis documentation.](http://redis.io/commands).
 
-* #### Commands on Sets
 
-SADD is used to add a specific memeber to the set. If the member is alreayd in the set, the operation will be just ignored. SISMEMBER is then used to check if an element is inside the list or not. You can use SMEMBERS to get all the elements inside the list and SCARD to get the number of memebers in the list.
+#### Commands on Sets
+
+"SADD" is used to add a specific member to the set. If the member is already in the set, the operation will be just ignored. "SISMEMBER" is then used to check if an element is inside the set or not. You can use "SMEMBERS" to get all the elements inside the set and "SCARD" to get the number of members in the set.
 
 ````
 redis> SADD myset "Hello"
@@ -199,18 +205,18 @@ redis> SCARD myset
 (integer) 1
 ````
 
-SDIFF,SDIFFSTORE,SINTER,SINTERSTORE,SUNION,SUNIONSTORE are very important commands that can be executed on sets to do useful operations on differnt sets which will be covered on details when discussing data modeling [later](link to linking models section).
+"SDIFF,SDIFFSTORE,SINTER,SINTERSTORE,SUNION,SUNIONSTORE" are very important commands that can be executed on the sets to do group or filter the data inside different sets which will be covered on more details when discussing grouping and filtering data [later](../Search Data/filtering and grouping.md).
 
-* #### Commands on Sorted Sets
+#### Commands on Sorted Sets
 
-ZADD is used like normal sets to add an element or elements to the sorted list but we can also provide a score for them.
+"ZADD" is used like normal sets to add an element or elements to the sorted list but we should also provide a score for each element.
 
 ````
 redis> ZADD myzset 2 "two" 3 "three"
 (integer) 2 
 ````
 
-ZCARD can be used to get the number of elements inside the sorted set but ZCOUNT can get the number of elements with score between a certain range.
+"ZCARD" can be used to get the number of elements inside the sorted set but "ZCOUNT" get the number of elements with score between a certain range.
 
 ````
 redis> ZADD myzset 1 "one"
@@ -220,12 +226,12 @@ redis> ZADD myzset 2 "two"
 redis> ZADD myzset 3 "three"
 (integer) 1
 redis> ZCARD myzset
-(integer) 2
+(integer) 3
 redis> ZCOUNT myzset 1 3
-(integer) 1
+(integer) 2
 ````
 
-ZRANGE gets the elements in a sorted list between certain range. ZRANK, ZREVRANK determines the rank of an element in the sorted list based on its score either ordered from low to high or the other way around. ZRANGEBYSCORE is also used to get elements in the sorted set with score between a certin range.
+"ZRANGE" gets the elements in a sorted set between certain range. "ZRANK, ZREVRANK" determine the rank of an element in the sorted list based on its score either ordered from low to high or the other way around. ZRANGEBYSCORE is used to get elements in the sorted set with score between a certain range.
 
 ````
 redis> ZRANGE myzset 2 3
@@ -237,7 +243,7 @@ redis> ZRANGEBYSCORE myzset 3 5
 2) "two"
 ````
 
-ZREMRANGEBYRANK,ZREMRANGEBYSCORE remove elements from the sorted set based on either the range of score or ranke.
+"ZREMRANGEBYRANK,ZREMRANGEBYSCORE" remove elements from the sorted set based on either the range of score or rank.
 
 ````
 redis> ZREMRANGEBYRANK myzset 0 1
@@ -246,11 +252,11 @@ redis> ZREMRANGEBYSCORE myzset 1 2
 (integer) 1
 ````
 
-ZINTERSTORE,ZUNIONSTORE will be discussed more on data modeling [section](link to the section).
+"ZINTERSTORE,ZUNIONSTORE" are used to intersect or union two sorted sets. 
 
-* #### Bitmaps Commands
+#### Bitmaps Commands
 
-GETBIT & SETBIT are used to get or set a bit value at a certain offset in the string value stored at the key. BITCOUNT returns the number of bits in a string.
+"GETBIT & SETBIT" are used to get or set a bit value at a certain offset in the string value stored at the key. "BITCOUNT" returns the number of bits in a string.
 
 ````
 redis> SETBIT mykey 7 0
@@ -263,25 +269,25 @@ redis> BITCOUNT mykey
 (integer) 26
 ````
 
-BITOP is used to perform a bitwise operation between multiple keys and can store the result in a destination key. Operations are  AND, OR, XOR and NOT.
+"BITOP" is used to perform a bitwise operation between multiple keys and  store the result in a destination key. Operations are  AND, OR, XOR and NOT.
 
 ````
 redis> BITOP AND dest key1 key2
 (integer) 6
 ````
 
-* #### HyperLogLog Commands
+#### HyperLogLog Commands
 
 There are only 3 commands for this data type as explained below:
 
-PFADD is used to add elements to the Hyperloglog structure.
+"PFADD" is used to add elements to the Hyperloglog structure.
 
 ````
 redis> PFADD hll a b c d e f g
 (integer) 1
 ````
 
-PFCOUNT is used to count how many elements are inside the Hyperloglog
+"PFCOUNT" is used to count how many elements are inside the Hyperloglog
 
 ````
 redis> PFADD hll foo bar zap
@@ -290,7 +296,7 @@ redis> PFCOUNT hll
 (integer) 3
 ````
 
-PFMERGE is mainly used to merge multiple Hyperloglog together into a unique Hyperloglog and eleminate duplicates. The result is stored into a destination Hyperloglog
+"PFMERGE" is used mainly to merge multiple Hyperloglog together into a unique Hyperloglog and eliminate any duplicates. The result is stored then into a destination Hyperloglog
 
 ````
 redis> PFADD hll1 foo bar zap a

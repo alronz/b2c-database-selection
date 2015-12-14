@@ -1,18 +1,18 @@
 #### [back](../Redis_Main.md)
 
 
-## Full Text Search 
+## [Full Text Search ](fullSearch.md)
 
-## Regular Expressions Support
+## [Regular Expressions Support](regx.md)
 
-## Supported Query Options
+## [Supported Query Options](supportedOptions.md)
 
-## Indexing 
+## [Indexing](indexing.md) 
 
-## Queries Types
+## [Queries Types](query.md)
 
-## Filters
+## [Filtering and Grouping](filtering and grouping.md)
 
-## Sorting
+## [Sorting](sort.md)
 
-## Grouping data
+## [Refernces](refernces.md)

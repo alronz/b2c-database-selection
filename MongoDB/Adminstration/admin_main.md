@@ -1,4 +1,4 @@
-#### [back](../Redis_Main.md)
+#### [back](../Mongo_Main.md)
 
 
 ## [Configuration](configurations.md)
@@ -18,5 +18,3 @@
 ## [Availability](availability.md) 
 
 ## [Data migration ](data migration.md)
-
-## [Refernces](refernces.md)

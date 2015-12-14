@@ -1,4 +1,4 @@
-#### [back](../Redis_Main.md)
+#### [back](../Mongo_Main.md)
 
 ## [Data Layout](data_layout.md)
 
@@ -6,7 +6,7 @@
 
 ## [Referential Integrity ](referential_integerity.md)
 
-## [Normalization](normalization.md) 
+## [Normalization](normalisation.md) 
 
 ## Data Evolution and Versioning
 
