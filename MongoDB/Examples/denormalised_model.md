@@ -1,4 +1,4 @@
-simplified:
+
 
 Complete denormalized model is in the order document:
 
