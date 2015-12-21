@@ -1,12 +1,28 @@
-Doing backup in Redis is so simple since it is basically taking snapshot of your dataset which already supported by Redis. Your data will be stored in an RDB file called dump.rdb file and will be stored in your redis directory. As has been explained before, you can configure Redis to take a snapshot of your data periodically as configured in your configuration file. Also you can get a snapshot manually by running the command SAVE or BGSAVE to be run as background process. To restore your data, you just need to move this dump file to your Redis directory and then start up your server and that will be all. If you don't know your Redis directory, just run the below command:
+In any production environment, we should have a backup strategy to restore our data back in case of failures. MongoDB provides a tool called mongodump that can read data from the database and creates a backup BSON files. To restore the created backup files, you can use the mongorestore tool to populate the MongoDB database with the backup BSON files.
+
+
+After restoring the data using mongorestore, the mongod instance must rebuild all indexes. Mongodump tool can impact the mongod instance performance, so it is usually recommended to run this tool against a secondary member in a replica set. 
+
+If you are using a replica set configuration, it is also possible to take a point in time backup using mongodump with the --oplog option. This means that mongodump will still be able to capture the changes to the data if the application modifies the data while backing up. To restore a point in time backup, you can use the mongorestore with the --oplogReplay option.
+
+
+You can take a backup for the whole server or for a specific collection. To create a backup on a certain server, you can run the below command:
 
 ````
-127.0.0.1:6379> CONFIG get dir
-
-1) "dir"
-2) "/user/UserName/redis-version/src"
+mongodump --host mongodb.example.net --port 27017
 ````
 
-To have a better backup to be used in disaster recovery, you can use snapshotting with replication so that you will have the same copy of your data in all your instances including masters and slaves. This will ensure that your data is save in case the master server crashed completely. 
+The above command will create the backup database with name dump/ in the current directory. 
+
+To take a backup for a particular collection in a database, you can use the below command:
+
+````
+mongodump --collection myCollection --db test
+````
 
 
+To restore a specific backup, you can run the below command:
+
+````
+mongorestore --port <port number> <path to the backup>
+````

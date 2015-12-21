@@ -1,16 +1,23 @@
-Sometimes we want to migrate our old data or insert a large amount of preexistence data into our Redis server. Inserting a millions of keys of data to Redis at short amount of time and without blocking the server operations for other clients is important topic. Luckily Redis supports a pipe mode that was designed in order to perform mass insertion. Using this utility is so simple, you just need to put all the data you want to insert in a file and then performs the below command:
+MongoDB supports the two useful easy to use tools mongoexport and mongoimport that can be used to migrate data between differnt mongodb instances. By using mongoexport, you can export a certain collection data in a CSV or BSON format. It is also possible to provide a query so that you can export only a part of the data in a certain collection. Examples are given below:
+
+Export data in csv format:
 
 ````
-cat data.txt | redis-cli --pipe
+mongoexport --db users --collection contacts --type=csv --fields name,address --out /opt/backups/contacts.csv
 ````
 
-This will produce an output similar to the below:
+As seen above you can specify which fields to export as well as the export path.
 
+Export data in BSON format:
 
 ````
-All data transferred. Waiting for the last reply...
-Last reply received from server.
-errors: 0, replies: 1000000
+mongoexport --db sales --collection contacts --out contacts.json
 ````
 
-So you can know the result of the mass insertion and whether there was errors or not.
+Then to import the data, you can run the import command as shown below:
+
+````
+mongoimport --db users --collection contacts --file contacts.json
+````
+
+

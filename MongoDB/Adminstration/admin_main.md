@@ -5,9 +5,7 @@
 
 ## [Scalability](scalability.md)
 
-## [Persistence, and ACID Support](persistance.md)
-
-## [Handling failure](handling_failure.md) 
+## [Persistency](persistance.md)
 
 ## [Backup](backup.md)
 
@@ -18,3 +16,5 @@
 ## [Availability](availability.md) 
 
 ## [Data migration ](data migration.md)
+
+## [Refernces](refernces.md)

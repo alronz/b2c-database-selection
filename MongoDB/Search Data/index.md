@@ -185,8 +185,13 @@ db.eventlog.createIndex( { "lastModifiedDate": 1 }, { expireAfterSeconds: 3600 }
 In the above example, we are creating a TTL index on the lastModifiedDate field which will let MongoDB expire the document after 3600 seconds from the value of the lastModifiedDate fields.
 
 
+##### Removing indexes
 
+To remove an already created index, you can use the  db.collection.dropIndex() method.  For example if we want to remove the single field index we created on the name field of the products collection, we can run the below :
 
+````
+db.products.dropIndex({"name":1})
+````
 
 
 

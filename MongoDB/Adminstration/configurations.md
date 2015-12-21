@@ -1,21 +1,32 @@
-As we already mentioned in the installation section, Redis can start without creating a configuration file and then it will take its built-in default configurations. For production environment you will need to choose your own configuration paramers depending on your settings. The Redis configuration is called redis.confi and will contain configuration with the below format:
+
+MongoDB uses a configuration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. The file has a [YAML format](http://www.yaml.org/start.html). As an example, below are the some basic configuration:
 
 ````
-confugirationKeyWord argument1 argument2 ... argumentN
+processManagement:
+   fork: true
+net:
+   bindIp: 127.0.0.1
+   port: 27017
+storage:
+   dbPath: /srv/mongodb
+systemLog:
+   destination: file
+   path: "/var/log/mongodb/mongod.log"
+   logAppend: true
+storage:
+   journal:
+      enabled: true````
+
+
+When you start your mongod or mongos instance, you need to specify the configuration file that will be used as shown below:
+
+````
+mongod --config /etc/mongod.conf
+
+mongos --config /etc/mongos.conf
 ````
 
-You can also pass configuration parameters via the command line which is very useful for development and testing environment. Example is shown below:
+If you want to change a configuration option in the configuration file of a mongod or mongos instances, you will need to restart the instance to pick up the new changes.
 
-````
-./redis-server --port 6380 --slaveof 127.0.0.1 6379
-````
+For a complete list of all the configuration options available for MongoDB, please review [MongoDB documentation.](https://docs.mongodb.org/manual/reference/configuration-options/)
 
-Finally configuring Redis while the server is running is also possible without the need to stop or restart the server. This is supported using the commands CONFIG GET , CONFIG SET which support most of the configuration keywords. Example is shown below:
-
-````
-CONFIG SET SAVE "900 1 300 10"
-````
-
-Above command will change the configuration related to persistence which will be explained later.
-
-I am going to explain in the following sections how to configure Redis for various administration and maintenance tasks such as configuring security , scalability and upgrade or backup. For a complete list of all the possible configurations that you can use in Redis, please check Redis [documentation](https://raw.githubusercontent.com/antirez/redis/3.0/redis.conf).

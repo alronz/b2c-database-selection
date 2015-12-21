@@ -1,9 +1,3 @@
-Redis doesn't support that you do online binary upgrades which means that the server must restart and the clients can't connect to it during the upgrade window. However there are some ways that you can use to support online upgrade. One way is to start a slave server and direct all the clients to it and meanwhile you do an upgrade to the master. After the upgrade is finished in the master, we can stop the slave server and then redirect the clients requests again to the master server. An example is shown below how to do it step by step:
+In this section I will show how to upgrade MongoDB version 3.0 to the latest version 3.2.  To upgrade a MongoDB instance, you should start by shutting it down using mongod --shutdown option. After that you can either manually upgrading by downloading the new 3.2 binaries and then just replace them with the old 3.0 binaries or you can use the package managers such as apt, dnf, yum, or brew. For instruction on how to install MongoDB 3.2, please have  a look to the [installation section](../Getting Started/installation.md). 
 
-First we assume that the master server runs on the default port which 6379. Then we start another slave server with the below command:
-
-````
-SLAVEOF localhost 6379
-````
-
-Now the new server is a slave of the master server that we want to upgrade. This will also trigger the BGSAVE command in the master server which will create a snapshot of the dataset and transfer it to the slave server. Now since this new slave server is running fine, we can redirect our client to this server and do the upgrade in the master server. After the master server is upgraded and configured correctly, we can then redirect the client to it and stop the slave server.
+If you are using more complex deployment such as using sharded clusters or replication. Please have a look to [MongoDB documentations](https://docs.mongodb.org/manual/release-notes/3.2-upgrade/) for more detailed instructions.

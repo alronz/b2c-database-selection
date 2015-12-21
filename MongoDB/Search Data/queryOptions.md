@@ -1,6 +1,6 @@
 #### [back](search_data_main.md)
 
-MongoDB supports many query options that can be applied on query operations such as skip(), limit(), min(), max() , and count(). For a complete list of all the options, please have a look at [MongoDB documentations](https://docs.mongodb.org/v3.0/reference/method/js-cursor/). I will show below how to use the most popular options. 
+MongoDB supports many query options that can be applied on query operations such as skip(), limit(), min(), max(), group, distinct and count(). For a complete list of all the options, please have a look at [MongoDB documentations](https://docs.mongodb.org/v3.0/reference/method/js-cursor/). I will show below how to use the most popular options. 
 
 ##### count()
 
@@ -56,5 +56,34 @@ db.products.find({cat: "Electornics"}).limit(5)
 ````
 
 In the above example, we are returning only 5 documents from the results set.
+
+
+##### group()
+
+The group command takes multiple documents and calculate a grouped results based on a certain field or fields. Example is given below:
+
+````
+db.products.group( {
+key: {colour: 1},
+cond: {price: {$lt:200}},
+reduce: function(cur,result){result.quantity += cur.quantity}
+initial: {quantity = 0}
+})
+````
+
+In the above example we are grouping all products with price less than 200 by the colour field and getting the sum of quantities in each group.
+
+##### distinct()
+
+MongoDB supports also a distinct function to get all the unique values of a certain field across multiple documents in a collection. An example is given below:
+
+````
+db.products.distinct("size")
+````
+
+The above query will get the unique sizes across all products. 
+
+
+
 
 

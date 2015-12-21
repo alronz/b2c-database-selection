@@ -79,6 +79,36 @@ You can use also namespace to define a collection for grouping purposes. For exa
 
 #### BSON Format
 
-MongoDB uses a BSON format to represent its documents. BSON is a binary encoded format that extends the well-known JSON model to provide more data types support. BSON also is a lightweight efficient format. It is also very fast and traversable. MongoDB can support embedding objects and arrays just like JSON but can also give access to its inside objects which is used by MongoDB to build indexes and nested keys. BSON can support many data types as can seen in more details in [MongoDB documentation](https://docs.mongodb.org/manual/reference/bson-types/).
+MongoDB uses a BSON format to represent its documents. BSON is a binary encoded format that extends the well-known JSON model to provide more data types support. BSON also is a lightweight efficient format. It is also very fast and traversable. MongoDB can support embedding objects and arrays just like JSON but can also give access to its inside objects which is used by MongoDB to build indexes and nested keys. BSON can support many data types as can seen in more details in [MongoDB documentation](https://docs.mongodb.org/manual/reference/bson-types/). I will give below a brief description for the common data types used in MongoDB:
+
+
+##### Double, String, Boolean, Date and Timestamp
+
+MongoDB supports the common data types that are used on most programming languages such double, boolean, string, and Date. The timestamp data type is a special timestamp type used internally by MongoDB which is not associated with the Date type. The timestamp is a 64 bit value where the first 32 bits stores the seconds since the Unix epoch and the second 32 bits stores an incrementing ordinal that are used for operations within a given second. Timestamps are always unique. However the Date data type is a 64-bit integer that contains the number of milliseconds since the Unix epoch.
+
+##### Object, Object id
+
+The object data type stores an embedded document and the object id is a  unique key consists of 12-bytes, and the first four bytes are a timestamp that reflect the ObjectId’s creation date.
+
+
+##### Array and Binary data
+
+You can also store an array inside a MongoDB BSON document that can contains other embedded documents or any other data types values. MongoDB supports also storing binary data such as an image or a file inside the BSON document.
+
+
+##### Regular Expressions
+
+This datatype is used to store regular expression.
+
+##### Other data types:
+
+Min/ Max keys : This is used if you want to compete a value against either the min or max BSON fields.
+
+JavaScript : TThis datatype is used if you want to store some javascript code into the BSON document.
+
+
+
+
+
 
 

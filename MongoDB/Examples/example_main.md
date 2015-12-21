@@ -1,19 +1,11 @@
 #### [back](../Mongo_Main.md)
 
+## Product & Category Management
+## Users Management
+## Shipping Management
+## Product Reviews Management
+## Wishlist Management
+## Historical Orders Management
+## [TPC-H Queries](tpch.md)
 
-## [Cart Management Service](cart_management.md) 
-
-## [Session Management Service](session_management.md)
-
-## [Cache Service](cache_management.md)
-
-## Analytics Service
-
-## Other Redis Examples:
-
-### Inspect Data
-### Job Queue 
-### Handling Data Relation
-### Pipeline Support 
-### Transaction Support
-
+## [References](references.md)
