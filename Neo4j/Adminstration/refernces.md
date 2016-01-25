@@ -1,3 +1,5 @@
-#### [back](search_data_main.md)
+#### [back](admin_main.md)
 
-## 1- 
+## 1- http://neo4j.com/docs/
+
+## 2- Graph Databases 2nd Edition. By Ian Robinson, Jim Webber, and Emil Eifrém. Publisher: O'Reilly Media.
