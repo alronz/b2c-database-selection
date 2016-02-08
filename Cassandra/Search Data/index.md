@@ -1,71 +1,207 @@
 #### [back](search_data_main.md)
 
+Cassandra supports secondary indexes that are used to access the data using columns other than the partition key.  The indexes are built in the background by Cassandra without blocking writes or reads. The indexes provide efficient and fast lookup based on matching conditions for any secondary columns. 
 
-Neo4j supports the creation of indexes on any property of a node if the node is already tagged to a label. Indexes will be managed automatically by Neo4j and be kept always up to date whenever graph data is updated. Once the index is created, Neo4j will start using the index to retrieve data efficiently whenever you run a query on it. As you might already know, index comes always with a space cost, so create an index only when you need it.
+Usually it is a good practice to create indexes on columns that aren't having high-cardinality which are the columns that are having many distinct or unique values. Creating indexes on high-cardinality will introduce many seeks for few results and it is not recommended. For example, it is better to create an index on the products release_year column instead of the product id since the product id has high-cardinality while the release_year column can group more results. In addition, creating an index on low-cardinality columns aren't recommended since they don't make much sense. For example, if you create an index on a boolean data type that has only true or false values will result on two huge rows having all the data having either false or true. Therefore, it is recommended to use columns that doesn't have high-cardinality or low-cardinality but are having medium cardinality.
 
-For example, we will create an index on the product name property of all the nodes having the :Product label :
+The other guidance principle that we should consider when creating indexes is to avoid creating indexes on columns that have frequent delete operations. The reason for that is that Cassandra stores up to 100K tombstones in the index, then the queries on the indexed columns will fail.
 
-````
-CREATE INDEX ON :Product(name)
-````
 
-Then you can easily run fast queries against it as shown below:
 
-````
-MATCH (p:Product { name: 'Dell Laptop' })
-RETURN p
-````
+In Cassandra, you can create an index on any secondary column of a table after the table definition statement. For example, we can create an index on the product release_year as shown below:
 
-or by using WHERE clause:
-
-````
-MATCH (p:Product)
-WHERE p.name = 'Dell Laptop'
-RETURN p
-````
-
-````
-MATCH (p:Product)
-WHERE p.name > 'L'
-RETURN p
-````
-
-````
-MATCH (p:Product)
-WHERE p.name STARTS WITH 'La'
-RETURN p
-````
-
-````
-MATCH (p:Product)
-WHERE HAS (p.name)
-RETURN p
-````
 
 
 ````
-MATCH (p:Product)
-WHERE p.name IN  ['Dell Laptop', 'T-Shirt']
-RETURN person
+create table product (
+      id text,
+      name text,
+      price decimal,
+      release_year text,
+      size text,
+      PRIMARY KEY(id)      
+  );
+````
+
+Now you can only query the product table using the partition key (id), if you want to query the table using the release_year, then you can create an index on the release_year:
+
+
+````
+SELECT * from product where release_year = "2015" 
+````
+
+You will get an error if you run the above query since you haven't provided the value of the partition key (id column). However to avoid getting this error, you can use the "ALLOW FILTERING" clause as shown below:
+
+
+
+````
+SELECT * from product where release_year = "2015" ALLOW FILTERING
+````
+
+
+If you have a partition key that contains a composite key, then you should provide the values of all the keys in the composite key otherwise your query will fail. To query using only a single key of the composite key, then you need to create an index on this key as shown below:
+
+````
+create table product (
+      id text,
+      name text,
+      price decimal,
+      release_year text,
+      size text,
+      PRIMARY KEY((size,release_year))      
+  );
 ````
 
 
 
-Finally to drop the index, you can run the below:
-
 ````
-DROP INDEX ON :Product(name)
+SELECT * from product where release_year = "2015" 
 ````
 
+The above query will fail since you need to provide also the size column value on the condition. However you can create the below index :
 
-With Neo4j 2.3, there is support only for automatic indexes which will be created on the properties of a node that is attached to a label and can be used for exact lookups of nodes based on their property values. Other types of indexes such as full-text, spatial, and range indexes are still not addressed but are planned to be targeted in the future roadmap.  However Neo4j still support legacy indexes, but because the use of legacy indexes isn't favoured by Neo4j, we aren't going to cover them here. If you need any information about using legacy indexes, you can have a look at [Neo4j documentations](http://neo4j.com/docs/stable/indexing.html).
+````
+CREATE INDEX ryear ON product (release_year);
+````
+
+Then the below query will succeed :
+
+````
+SELECT * from product where release_year = "2015" 
+````
 
 
-If you need to create a composite index to ensure the uniqueness on two or more properties at the same time, then you can create one normal index and use MERGE clause when creating the data as shown below:
+
+
+It is also possible to create multiple secondary indexes as shown below:
+
+````
+CREATE INDEX name ON product ( name );CREATE INDEX price ON product ( price );
+````
+
+Then you can run queries on both secondary indexes as below:
 
 
 ````
-CREATE CONSTRAINT ON (c:Customer) assert a.composite_id IS UNIQUE;
-
-MERGE (c:Customer {composite_id: [{firstName},{secondName},{age}]}) ON CREATE SET c.firstName = {firstName}, c.secondName={secondName}, c.age = {age};
+SELECT * from product where price > 1000 AND name = "Dell"  ALLOW FILTERING
 ````
+
+
+
+Finally, you can create indexes on a collection such as a list, a map or a set as shown below:
+
+
+
+````
+create table product (
+      id text,
+      name text,
+      price decimal,
+      tags set<text>,
+      release_year text,
+      size text,
+      PRIMARY KEY((size,release_year))      
+  );
+````
+
+
+````
+CREATE INDEX tags ON product ( tags );
+```` 
+ 
+Then you can run queries such as the below:
+
+
+````
+SELECT * FROM product WHERE tags CONTAINS 'Electronics';```` 
+ 
+Or you create an index on a map like below:
+
+ 
+
+````
+create table product (
+      id text,
+      name text,
+      price decimal,
+      tags set<text>,
+      address map<text,text>,
+      release_year text,
+      size text,
+      PRIMARY KEY((size,release_year))      
+  );
+````
+
+
+
+````
+CREATE INDEX address ON product (ENTRIES(address));
+````
+
+
+Then you can run queries such as the below:
+
+
+````
+SELECT * FROM product WHERE address['street'] =  'Breslauer Str. 2';````
+
+
+Or you can create an index on a list as below:
+
+
+
+````
+create table product (
+      id text,
+      name text,
+      price decimal,
+      tags set<text>,
+      address map<text,text>,
+      categories  List<int>,
+      release_year text,
+      size text,
+      PRIMARY KEY((size,release_year))      
+  );
+````
+
+````
+CREATE INDEX categories ON product (FULL(categories));
+````
+
+
+Then you can run a query like below:
+
+
+````
+SELECT * FROM product WHERE categories =  [1,4,7];````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
