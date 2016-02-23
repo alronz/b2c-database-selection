@@ -2,4 +2,4 @@
 
 
 
-Unfortunately CQL doesn't support a SQL-similar LIKE clause to use search inside the columns values using regular expressions. There is no built-in support in Cassandra for regular expressions and usually people use search engines plugins to use regular expression or to do full-text search.
+Unfortunately CQL doesn't support anything similar to the SQL LIKE clause that can be used to  search the data using regular expressions. There is no built-in support in Cassandra for regular expressions and usually people use search engines plugins to use regular expression or to do full-text search.

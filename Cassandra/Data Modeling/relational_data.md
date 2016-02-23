@@ -8,13 +8,14 @@ Assuming you are having a B2C application where you want to run queries that nee
 
 Q1) get all the products that were bought by a certain customer
 
-Now depending on how frequent this query will be running and which data should be returned from this query , we can design the data model that will serve this query. Assuming we just want to get the product names and this query will be executed so frequently, maybe thousands of times. Then we will create a separate table having duplicate information from the customer and the product tables as shown below:
+Now depending on how frequent this query will be running and which data to be returned from the query, we can a table to serve this query. Assuming we just want to get the product names and this query will be executed so frequently, maybe thousands of times. Then we will create a separate table having duplicate information from the customer and the product tables as shown below:
 
 ````
 create table bought_products_by_customer (
       customer_id text,
+      product_id text,
       product_name text,
-      PRIMARY KEY(customer_id)      
+      PRIMARY KEY(customer_id,product_id)      
   );
 ````
 
@@ -30,10 +31,11 @@ If you want to get the product name, size and color , then you can duplicate thi
 ````
 create table bought_products_by_customer (
       customer_id text,
+      product_id text,
       size text,
       color text,
       product_name text,
-      PRIMARY KEY(customer_id)      
+      PRIMARY KEY(customer_id,product_id )      
   );
 ````
 
@@ -45,7 +47,6 @@ SELECT size,color,product_name from bought_products_by_customer where customer_i
 ````
 
 
-
 Q2) get all customers that bought a certain product
 
 This is the other way around for the first query and can be done in a very similar way as shown below:
@@ -54,10 +55,11 @@ This is the other way around for the first query and can be done in a very simil
 ````
 create table customers_bought_product (
       product_id text,
+      customer_id text,
       name text,
       address text,
       age text,
-      PRIMARY KEY(product_id)      
+      PRIMARY KEY(product_id,customer_id)      
   );
 ````
 

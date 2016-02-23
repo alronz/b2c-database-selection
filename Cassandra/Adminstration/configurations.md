@@ -12,13 +12,13 @@ This configuration parameter is used to allow the node to join a specific cluste
 
 
 commitlog_directory
-This is where you set where the commit log file is stored.
+This is where you set the path where the commit log file is stored.
 
 data_file_directories
-This is where you set where the SSTables files are stored.
+This is where you set the path where the SSTables files are stored.
 ````
 
-
+For more information about all other configuration options, please have a look at [Cassandra documentations](https://docs.datastax.com/en/cassandra/1.2/cassandra/configuration/configCassandra_yaml_r.html).
 
 
 
