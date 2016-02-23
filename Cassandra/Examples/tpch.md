@@ -103,7 +103,7 @@ After loading the data, now if we run a "select * from CASSANDRA_EXAMPLE_KEYSPAC
 
 
 
-As mentioned in previous sections (link to the query options section), Cassandra supports some built in aggregate functions such as sum, avg, min, max and count. However if you want to perform some mathematical operations in the SELECT clause, then you will have to create a separate user defined function for that. As seen in the SQL query, we need to perform the below mathematical operations inside the SELECT clause:
+As mentioned in a [previous sections](../Search Data/queryOptions.md), Cassandra supports some built in aggregate functions such as sum, avg, min, max and count. However if you want to perform some mathematical operations within the SELECT statement, you will have to create a separate user defined function for that. As seen in the SQL query, we need to perform the below mathematical operations in the SELECT statement:
 
 ````
 sum(l_extendedprice*(1-l_discount)) as sum_disc_price
@@ -122,7 +122,7 @@ CREATE OR REPLACE FUNCTION CASSANDRA_EXAMPLE_KEYSPACE.fSumChargePrice (l_extende
 ````
 
 
-After creating the CQL KEYSPACE, the CQL table, loaded the table with data ,  and created the two user defined functions fSumDiscPrice and fSumChargePrice, we can run a CQL SELECT query as shown below:
+After creating the Keyspace, the CQL table, loaded the table with data ,  and created the two user defined functions fSumDiscPrice and fSumChargePrice, we can run a CQL SELECT query as shown below:
 
 
 ````
@@ -144,13 +144,13 @@ WHERE
  and linestatus = 'O' ;
 ````
 
-We have also specified the partition key values (returnflag and linestatus) since if you don't specify them in the query, Cassandra will aggregate the results across all the partitions in the cluster and gives wrong results beside it will be so slow. If you don't specify the partition key values, you will get a warning from Cassandra and a wrong results as shown below:
+Notice that we have specified the partition key values (returnflag and linestatus) which not what we want on the original query. We had to specify the partition key values since if you don't, Cassandra will aggregate the results across all the partitions in the cluster and gives wrong results beside it will be very slow. If you don't specify the partition key values, you will get a warning from Cassandra as shown below:
 
 
 ![image](https://s3.amazonaws.com/b2cbucket/q1screenshot3.png)
 
 
-But this is not useful since when you do a an aggregate query like the above, you usually do it across the whole data in all the partition to get some kind of analytic report. To overcome this challenge, you can get all the partition key values using the below query :
+But this is not useful since we want to aggregate across the whole data in all the partition to get some kind of overall analytic report and not for each partition separately. To overcome this challenge, you can get the partition key values across all partitions using the below query :
 
 ````
 select distinct  returnflag, linestatus from CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q1 ;
@@ -160,7 +160,7 @@ For our example data, you will get only one row as shown below, but for differen
 
 ![image](https://s3.amazonaws.com/b2cbucket/q1screenshot4.png)
 
-Then you can iterate through the results and run the CQL aggregate query shown above for each row as shown below in the java code sinppest:
+Then you can iterate through the results and run the CQL aggregate query shown above for each partition keys as shown below in the java code sinppest:
 
 ````
 
@@ -183,7 +183,7 @@ for (Row innerRow : rsQ1.all())
 
 ````
 
-You might be wondering about the order by clause in the SQL query. Unfortunately, you can't group by and order using the same columns in Cassandra. Grouping in Cassandra is done using the partition key and ordering happens inside the partition using what is called the clustering columns and they should be not the partition key columns. To put it simple, you can't group by a column (use it as partition key) and then order by the same column using the ORDER BY clause since you will need a clustering column. Although there is a way to order cluster by the partition key using the Byte Ordered Partitioner (BOP), however it is discouraged because it can lead to hot spots and load balancing problems.
+You might be wondering about the "order by" clause in the SQL query. Unfortunately, you can't group and order by the same columns in Cassandra. Grouping in Cassandra is done using the partition key while ordering happens inside each partition using what is called the clustering columns. To put it simple, you can't group by a column (use it as a partition key) and then order by the same column using the ORDER BY clause since you can order by only a clustering column. Although there is a way to order cluster by the partition keys using the Byte Ordered Partitioner (BOP), however it is discouraged because it can lead to hot spots and load balancing problems.
 
 
 The complete java code for the api that will return the results of TPCH Q1 is shown below:
@@ -254,7 +254,7 @@ This query is used to get the 10 unshipped orders with the highest value. In ord
 select l_orderkey, sum(l_extendedprice*(1-l_discount)) as revenue, o_orderdate, o_shippriorityfrom customer, orders, lineitemwhere c_mktsegment = '[SEGMENT]' and c_custkey = o_custkey and l_orderkey = o_orderkey and o_orderdate < date '[DATE]' and l_shipdate > date '[DATE]'group by l_orderkey, o_orderdate, o_shippriorityorder by revenue desc, o_orderdate;
 ````
 
-Since joins aren't supported in Cassandra, we create an CQL table that has all the needed values from the different tables since denormalising your data is ok in Cassandra as mentioned previously. We create the table as shown below:
+Since joins aren't supported in Cassandra, we create a CQL table that has all the needed values from the different tables since duplicating your data is ok in Cassandra as mentioned in the [data layout section](../Data Modeling/data_layout.md). We create the table as shown below:
 
 ````
  CREATE TABLE IF NOT EXISTS CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3
@@ -272,7 +272,7 @@ PRIMARY KEY ((orderkey,o_orderdate,o_shippriority),c_mktsegment,l_shipdate,linen
 ````
 
 
-Similar to what we have done in Q1, we have chosen the partition key to be the columns that we are going to group with as shown in the SQL query (l_orderkey,o_orderdate,o_shippriority). This will let us run aggregate functions on them since the aggregate functions are run in partition level in Cassandra. Then we have added the c_mktsegment, and linenumber to the compound key so that the primary key is unique and to avoid overwriting. Although the partition key (orderkey,o_orderdate,o_shippriority) and the linenumber will be enough to ensure the uniqueness of the primary key, however I have added the c_mktsegment and the l_shipdate as clustering columns since we need it in the WHERE clause. If you don't want to use it as a clustering column, you can create a separate secondary index for the columns you want to filter with using the WHERE clause. However the performance will be better if you include the filtering columns as clustering column in the compound key since the filtering will be faster inside each partition. 
+Similar to what we have done in Q1, we have chosen the partition key to be the columns that we are going to group with as shown in the SQL query (l_orderkey,o_orderdate,o_shippriority). This will let us run aggregate functions on them since the aggregate functions are run in partition level in Cassandra. Then we have added the linenumber to the compound primary key so that the primary key is unique and to avoid overwriting. I have added the c_mktsegment and the l_shipdate as clustering columns to the compound primary key since we need to query against them. If you don't want to use it as a clustering column, you can also create a separate secondary indexes for the columns you want to filter with. 
 
 Now we need to load the table with data as shown below:
 
@@ -346,13 +346,13 @@ private void loadTpchQ3() {
 ````
 
 
-Now the data is loaded in the table. If you run a "select * from CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3;", you get the below:
+After the data is loaded in the table. If you run a "select * from CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3;", you will get the below:
 
 
 ![image](https://s3.amazonaws.com/b2cbucket/q3screenshot1.png)
 
 
-Now after we have created the table and loaded it with date, we can run aggregate query like the SQL version. The query is shown below:
+Now after we have created the table and loaded it with date, we can run aggregate query like the SQL version as shown below:
 
 ````
 SELECT orderkey,sum(CASSANDRA_EXAMPLE_KEYSPACE.fSumDiscPrice(l_extendedprice,l_discount)) as revenue, o_orderdate,l_shipdate, o_shippriority,linenumber from CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3
@@ -396,7 +396,7 @@ String getAllPartitionKeyValues = "select distinct  orderkey, o_orderdate,o_ship
 ````
 
 
-Now for the sorting part of the query. As you can see from the SQL query, the results are sorted by the revenue which is a field that was created using an aggregate function during the SELECT statement. Unfortunately this is not easily done in Cassandra. The sorting columns are defined during the table creation and not during the SELECT statement. One idea to solve this, is to create a Materialised View that will be created using a SELECT statement and then use the newly created column (revenue) to be a clustering column of the created Materialised View. However unfortunately Cassandra doesn't support user defined functions on the Materialised View. But we would need a user defined function to create the revenue field ( sum(l_extendedprice*(1-l_discount)) as revenue). Another idea I used to overcome this challenge is by creating a temporary table to store the intermediate aggregate results, then query this table and finally delete it once finished. The temporary table has the below structure:
+As you can see from the SQL query, the results are sorted by the revenue which is a field that was created using an aggregate function during the SELECT statement. Unfortunately this is not easily done in Cassandra. The sorting columns (clustering columns) are defined during the table creation and not during the SELECT statement. One idea to solve this, is to create a Materialised View that will be created using a SELECT statement and then use the newly created column (revenue) to be the clustering column of the created Materialised View. However unfortunately Cassandra doesn't support user defined functions on the Materialised View that would be needed to create the revenue field ( sum(l_extendedprice*(1-l_discount)) as revenue). Another idea I used to overcome this challenge is by creating a temporary table to store the intermediate aggregate results, then query this table and finally delete it once finished. The temporary table has the below structure:
 
 ````
 CREATE TABLE IF NOT EXISTS CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3_TEMP
@@ -408,10 +408,9 @@ PRIMARY KEY (orderkey,revenue,o_orderdate)
 )WITH CLUSTERING ORDER BY (revenue DESC, o_orderdate ASC);
 ````
 
-As you can see, it has a simple partition key (orderkey) as it would contain only the results of the previous aggregate query. The revenue and o_orderdate are the clustering columns using for sorting. I have also specified the sorting order using the WITH CLUSTERING ORDER BY clause. 
+As you can see, it has a simple partition key (orderkey) as it would contain only the results of the aggregate query. The revenue and o_orderdate are the clustering columns used for sorting. I have also specified the sorting order using the WITH CLUSTERING ORDER BY clause. 
 
-Now you can load it with results of the aggregate query as show below:
-
+Now you can load it with results of the aggregate query of each partition as show below:
 
 
 ````
@@ -462,7 +461,7 @@ Then you can run queries against this temporary table as below:
 SELECT * from CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3_TEMP ;
 ````
 
-Notice that we don't use any ORDER BY clause since it will be sorted by the order specified when we created the table.  After we get the results as shown below:
+Notice that we don't use any ORDER BY clause since it will be sorted by the order specified when we created the table.  We get the results as shown below:
 
 ![image](https://s3.amazonaws.com/b2cbucket/q3screenshot2.png)
 
@@ -568,7 +567,7 @@ select o_orderpriority, count(*) as order_countfrom
  orderswhere o_orderdate >= date '[DATE]' and o_orderdate < date '[DATE]' + interval '3' month and exists (select *from lineitemwhere l_orderkey = o_orderkey and l_commitdate < l_receiptdate)group by o_orderpriorityorder by o_orderpriority;
 ````
 
-In a similar way like we have done in Q1 and Q3 , we create a new CQL table that will be used later to run the above query. The table is shown below:
+In a similar way like we have done in Q1 and Q3 , we create a new CQL table that will be used to serve the above query. The table is shown below:
 
 ````
 CREATE TABLE CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q4
@@ -584,7 +583,7 @@ PRIMARY KEY (o_orderpriority,o_orderdate,orderkey,linenumber)
 ````
 
 
-We have used the primary key to be a combination of o_orderpriority, o_orderdate, orderkey, and linenumber to ensure the uniqueness of the inserted data in each partition. The o_orderpriority is the partition key since it is the group by column in the query. And as explained before, aggregation in Cassandra is done in the partition level so we have to use the o_orderpriority as the partition key. Note that we have used o_orderdate as the first clustering column so that we can run range queries on it. However we will have to create a secondary index for the l_commitdate since we can't have two clustering columns and still be able to run range queries on both of them. Hence I have created a secondary index on the l_commitdate as shown below:
+We have used the primary key to be a combination of o_orderpriority, o_orderdate, orderkey, and linenumber to ensure the uniqueness of the inserted data in each partition. The o_orderpriority is the partition key since it is the group by column in the original SQL query. And as explained before, aggregation in Cassandra is done in the partition level so we have to use the o_orderpriority as the partition key. Note that we have used o_orderdate as the first clustering column so that we can run range queries on it. However we will have to create a secondary index for the l_commitdate since we can't have two clustering columns and still be able to run range queries on both of them. Hence I have created a secondary index on the l_commitdate as shown below:
 
 
 ````
@@ -650,7 +649,7 @@ After loading the data, if you run a "SELECT * from CASSANDRA_EXAMPLE_KEYSPACE.T
 ![image](https://s3.amazonaws.com/b2cbucket/q4screenshot1.png)
  
 
-Now we can run an aggregate query against our table but first we need to get all the partition keys then run the query agains each partition as we have done in Q1 and Q3 as shown below:
+Now we can run an aggregate query against our table but first we need to get all the partition keys. Then we can run the query against each partition as we have done in Q1 and Q3 as shown below:
 
 
 ````
@@ -682,7 +681,7 @@ You can notice that I couldn't run the SQL condition ( and l_commitdate < l_rece
 [Syntax error in CQL query] message="line 1:253 no viable alternative at input ';' (...< '2000-01-01' and l_commitdate < [l_receiptdate] ;)”>\
 ````
 
-Cassandra doesn't support to have a condition of a column compared to another column within the same table. So I had to use a normal static value (and l_commitdate < '2000-01-01') which not what the original query want. 
+Cassandra doesn't support having a condition of a column compared to another column within the same table. So I had to use a normal static value (and l_commitdate < '2000-01-01') which not what the original query require. 
 
 
 Finally, similar to the first query Q1 you can't order by the same column that you are grouping by. So I couldn't order the results by the o_orderpriority as in the original query since this column is the partition key and can't be used as a culturing column. 
