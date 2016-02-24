@@ -1,7 +1,7 @@
 #### [back](search_data_main.md)
 
 
-Cassandra supports sorting using the clustered columns. When you create a table, you can define  clustering columns which will be used to sort the data inside each partition in either an ascending or descending orders. Then you can easily use the ORDER BY clause with the ASC or DESC options. An example is given blow:
+Cassandra supports sorting using the clustering columns. When you create a table, you can define  clustering columns which will be used to sort the data inside each partition in either ascending or descending orders. Then you can easily use the ORDER BY clause with the ASC or DESC options. An example is given blow:
 
 Assuming we have created the below table:
 

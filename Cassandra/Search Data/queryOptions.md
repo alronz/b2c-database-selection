@@ -1,7 +1,7 @@
 #### [back](search_data_main.md)
 
 
-Cassandra has a built-in support for common aggregate functions such as Limit, min, max, avg, sum, and count.  Cassandra also supports the creation of a custom user defined functions. In this section, I will explain how to use the built-in functions as well as the user defined functions.
+Cassandra has a built-in support for common aggregate functions such as min, max, avg, sum, and count.  Cassandra also supports the creation of custom user defined functions. In this section, I will explain how to use the built-in functions as well as the user defined functions.
 
 
 Assuming we have created the below order table:

@@ -1,7 +1,7 @@
 #### [back](admin_main.md)
 
 
-Cassandra supports taking backups through snapshots and by enabling the incremental backup feature. The snapshot is taken for all the on-disk data or the SSTable files in a node. It can be taken for a single keyspace or for all keyspaces. It is also possible to take a snapshot for the whole cluster. In general, first we take a system-wide snapshot then we enable the incremental backup feature in each node to backup the delta data that has been changed after taking that snapshot. 
+Cassandra supports taking backups through snapshots and by enabling the incremental backup feature. The snapshot is taken for the SSTable files in a node either for a single keyspace or for all keyspaces or even for the whole cluster. Generally, a system-wide snapshot is taken then the incremental backup feature is enabled in each node to backup only the delta data that has been changed since the last snapshot. 
 
 
 To take a snapshot on a node, we use the nodetool snapshot command as shown below:

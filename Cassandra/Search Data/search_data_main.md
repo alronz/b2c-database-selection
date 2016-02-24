@@ -3,13 +3,13 @@
 
 ## [Full Text Search](fulltext.md) 
 
-## [Regular Expressions Support](regx.md)
+## [Regular Expressions](regx.md)
 
-## [Supported Query Options](queryOptions.md)
+## [Aggregation](queryOptions.md)
 
 ## [Indexing](index.md) 
 
-## [Query Types](query.md)
+## [Query](query.md)
 
 ## [Filtering and Grouping](filtering and grouping.md)
 
