@@ -1,4 +1,4 @@
-Cassandra is a distributed database that can handle large amount of data and allows for high performance, scalability and availability because of its decentralised architecture. In the following sections, I will give a brief summary for most of the features that we look for in a database and how Cassandra support them.
+Cassandra is a distributed database that can handle large amount of data and allows for high performance, scalability and availability because of its decentralised architecture. In the following sections, I will give a brief summary for most of the features that we look for in a database and how Cassandra supports them.
 
 
 ##### Use cases

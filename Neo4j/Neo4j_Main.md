@@ -10,8 +10,6 @@
 
 ## [Searching Data](Search Data/search_data_main.md)
 
-## [Special Features](Special Features/special_features_main.md)
-
 ## [Administration and Maintenance](Adminstration/admin_main.md)
 
 ## [Example](Examples/example_main.md)

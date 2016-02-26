@@ -3,7 +3,7 @@
 
 Neo4j supports the creation of indexes on any property of a node if the node is already tagged to a label. Indexes will be managed automatically by Neo4j and be kept always up to date whenever graph data is updated. Once the index is created, Neo4j will start using the index to retrieve data efficiently whenever you run a query on it. As you might already know, index comes always with a space cost, so create an index only when you need it.
 
-For example, we will create an index on the product name property of all the nodes having the :Product label :
+For example, we will create an index on the product name property of all the nodes having the ":Product" label :
 
 ````
 CREATE INDEX ON :Product(name)

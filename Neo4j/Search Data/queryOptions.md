@@ -1,7 +1,7 @@
 #### [back](search_data_main.md)
 
 
-Neo4j supports many query functions that can be used to offer aggregations functions such as min, max, avg, count, DISTINCT, sum, stdev, stdevp and collect. Most of these functions works exactly in the same way in SQL such as min, max, sum, avg and count. These basic function are used with the RETURN clause to return aggregated results as shown below:
+Neo4j supports many query functions that can be used to offer aggregations functions such as min, max, avg, count, DISTINCT, sum, stdev, stdevp and collect. Most of these functions works exactly in the same way in SQL such as min, max, sum, avg and count. The aggregation is done in the RETURN clause and the grouping key(s) will be automatically figured out by the RETURN clause and doesn't need to be specified manually. These basic function are used with the RETURN clause to return aggregated results as shown below:
 
 ````
 MATCH (p:Product)

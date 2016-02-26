@@ -1,14 +1,5 @@
 #### [back](getting_started_main.md)
 
-
-Complex queries (complex join operations. )
-
-usually in data warehouses or business intelligence , queries are complex , important and expensive, so they can't be run in production and always run on stale data. Neo4j can provide live queries in production data since they are fast.
-
-Path finding problems/queries
+Neo4j is based on the graph property model and can handle complex queries very efficiently. Therefore, it is used in many use cases such as software analytics, scientific research, path finding problems, recommendation system, social networks, network management, business intelligence or warehouses and many more. 
 
 
-Using it with simple data model introduce unnecessary complixity and performance issues.
-
-
-Use cases include matchmaking, network management, software analytics, scientific research, routing, organizational and project management, recommendations, social networks, and more.

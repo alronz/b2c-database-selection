@@ -1,7 +1,7 @@
 #### [back](search_data_main.md)
 
 
-To sort the results returned by your query, Neo4j supports a SQL-like clause called ORDER BY which is used at the end of your query after RETURN or WITH clauses. The ORDER BY clause will simply order the returned results based on a variable projected by RETURN or WITH clauses. This means that you can only order what has been returned previously.
+To sort the results returned by a query, Neo4j supports a SQL-like clause called ORDER BY which is used at the end of your query after the RETURN or WITH clauses. The ORDER BY clause will simply order the returned results based on a property field projected by the RETURN or WITH clauses. This means that you can only order what has been returned previously.
 
 For example if your query returns only product name, size and price. The you can sort your results by either product name, size or price as shown below:
 

@@ -5,19 +5,22 @@ Neo4j supports automatic upgrade for upgrades between patch releases and within 
 
 ##### Automatic Upgrade
 
-As mentioned pre
+Follow the steps below:
+
+1- Shut down the older Neo4j version.
+2- Install the new version and configure it to use the same old data store directory.
+3- Take a copy of the database.
+4- Start Neo4j.
 
 
-To perform an automatic store upgrade:
-
-Cleanly shut down the older version of Neo4j, if it is running.
-Install Neo4j 2.3.2, and set it up to use the same database store directory (typically data/graph.db).
-Make a copy of the database.
-[Important]	
-Important
-It is strongly advised to make a copy of the database store directory at this time, to use as a backup in case rollback/downgrade is required. This is not necessary if a backup has been made using the online backup tool, available with Neo4j Enterprise.
-Start up Neo4j.
-Any database store upgrade required will occur during startup.
+##### Manual Upgrade
 
 
+Follow the steps below:
+
+1- Shut down the older Neo4j version.
+2- Install the new version and configure it to use the same old data store directory.
+3- Configure the configuration parameter allow_store_upgrade=true 
+4- Start Neo4j.
+5- Configure the configuration parameter allow_store_upgrade=false 
 

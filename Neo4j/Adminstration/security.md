@@ -8,12 +8,12 @@ Neo4j supports different security options on the data level as well as on the se
 
 ##### Data Security
 
-Neo4j support all the security methods available in the Java programming language and the JVM to encrypt the data before storing it to protect the data from unauthorised access. Security isn't handled automatically and needs to be done in the upper layers. 
+Neo4j support all the security methods available in the Java programming language and the JVM to encrypt the data before storing for protection from any unauthorised access. Security isn't handled automatically and needs to be implemented in the upper layers. 
 
 
 ##### Server Security
 
-The server instance replies only to requests coming from localhost and port 7474 to protect the server from malicious requests. To change this setting, you can set the configuration parameter below:
+The server instance replies only to requests coming from the localhost and port 7474 to protect the server from malicious requests. To change this setting, you can set the configuration parameter below:
 
 ````
 org.neo4j.server.webserver.address=0.0.0.0

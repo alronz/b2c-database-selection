@@ -22,7 +22,7 @@ Data model design techniques are explained previously in the [data layout sectio
 ![image](https://s3.amazonaws.com/b2cbucket/tpcHNeo4j.png)
 
 
-Although we have 8 entities in the TPCH data model, we have created only 7 node's labels (Supplier,Customer,Order,Nation,Region,Lineitem, and Part) since the Partsupp entity is replaced by a relationship. We have created 6 relationship's types (Contains, Created_By, From, Located_in, Has_details and Supplied_By) that represents all the relationships between the different entities in the TPCH model. The Has_details relationship type is the one replacing the Partsupp entity in the TPCH model and we store inside the relationship the availqty and the supplycost values that comes from the Partsupp entity. 
+Although we have 8 entities in the TPCH data model, we have created only 7 node's labels (Supplier,Customer,Order,Nation,Region,Lineitem, and Part) since the Partsupp entity is replaced by a relationship. We have created 6 relationship's types (Contains, Created_By, From, Located_in, Has_details and Supplied_By) that represents all the relationships between the different entities in the TPCH model. The Has_details relationship type is the relationship that replaces the Partsupp entity in the TPCH model and we store inside the relationship the availqty and the supplycost values that comes from the Partsupp entity. 
 
 Now after defining the Node's labels and relationship's types, we create the actual nodes and relationships and load them with data using a small set of data generated using the TPCH DBGEN tool as explained previously. We store the data as CSV files inside the data folder, then we iterate through the files line by line and create the corresponding nodes and relationships. To see the complete code, please have a look at the [TPCHModel.java](https://github.com/alronz/B2C-Database-Selection-Implementations/blob/master/Neo4j/Neo4jTPCHQueries/src/main/java/org/neo4j/tpcH/TPCHModel.java) file. 
 
@@ -111,7 +111,7 @@ As seen from the code above, we first create a unique constraint on the LINENUMB
 We do the same as the function above to create nodes for all other node's labels (Supplier,Customer,Order,Nation,Region, and Part). The functions are createCustomerNodes(), createSupplierNodes(), createNationNodes(), createOrderNodes(), createPartNodes() and createRegionNodes().
 
 
-To create the CONTAINS relationships as an example, we iterate through the Lineitem CSV file. Then for each line we get the order node that has the ORDERKEY as a property inside the node. In the same way, we get the order node that has the LINENUMBER as a property inside the node. Finally we create a relationship that starts from the order node and ends at the lineitem node and make sure that this relationship doesn't already exists to prevent creating the same relationship twice. The code is shown below:
+To create the CONTAINS relationships as an example, we iterate through the Lineitem CSV file. Then for each line we get the order node that has the ORDERKEY as a property inside the node. In the same way, we get the order node that has the LINENUMBER as a property inside the node. Finally we create a relationship that starts from the order node and ends at the lineitem node and make sure that this relationship doesn't already exist to prevent creating the same relationship twice. The code is shown below:
 
 
 ````
@@ -217,7 +217,7 @@ ORDER BY item.RETURNFLAG, item.LINESTATUS
 ````
 
 
-Basically, we are searching all the nodes that are having the "Lineitem" label, filter the results using the shipdate property of the node and return only the fields that are needed in the original SQL query. You can also easily use mathematical operations on the returned fields exactly as we do with SQL and use the built-in aggregate function of Neo4j such as min, max, sum, avg, and count.  The aggregation is done automatically in Cypher and there is no need to provide a group by statement. Sorting is done using the ORDER BY statement exactly as we use it in SQL. The only difference is that the Cypher language has no date support, therefore we have stored the date properties as long value representing the Epoch time. When you store the date using the Epoch long value, we will be able to later run range queries on the property as we have done above.
+Basically, we are searching all the nodes that are having the "Lineitem" label, filter the results using the shipdate property of the node and return only the fields that are needed in the original SQL query. You can also easily use mathematical operations on the returned fields exactly as we do with SQL and use the built-in aggregate function of Neo4j such as min, max, sum, avg, and count.  The aggregation is done automatically in Cypher and there is no need to provide a group by statement. Sorting is done using the ORDER BY statement exactly as we use it in SQL. The only difference is that the Cypher language has no date support, therefore we have stored the date properties as long value representing the Epoch time. When you store the date using the Epoch long value, we will be able to run range queries on the property as we have done above.
 
 The complete implementation of the API call that will retrieve the results for Q1 is shown below:
 
