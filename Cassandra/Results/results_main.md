@@ -1,6 +1,6 @@
 #### [back](../Cassandra_Main.md)
 
 
-## Advantages and Limitations 
+## [Strength and Weakness](benifits_limitations.md) 
 
 ## [Summary](summary.md)

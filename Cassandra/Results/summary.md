@@ -17,7 +17,7 @@ Cluster: The outermost container and can contain multiple data centres.
 
 Gossip protocol: A protocol used by a node to discover information and the state of all other nodes in the cluster.
 
-A Partitioner: Used to shard the data and distribute it across all the nodes.
+A Partitioner: Is a hash function used to compute the tokens (hashing the partition key) and this token is used to distribute the data as well as read/write request across all the nodes in the cluster based on the hash ranges (Consistent hashing). 
 
 The replication factor: Used to determine how many copies of the written
 data should be kept inside a cluster.
