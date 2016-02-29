@@ -47,7 +47,7 @@ To find out which shard is a primary in a sharded cluster, you can run the mongo
 
 ##### Data Distribution in a Sharded Cluster
 
-First to shard the data, a shard key needs to be selected. The sharded key should be either an single indexed field or a compound index. Mongoldb then divid the sharded key values evenly over the shards as chunks.
+First to shard the data, a shard key needs to be selected. The sharded key should be either a single indexed field or a compound index. Mongoldb then divid the sharded key values evenly over the shards as chunks.
 
 To ensure that the data in the different shards are distributed evenly. MongoDB use a splitting and a balancing background processes. The splitting process splits the chunks data whenever the data grows beyond a pre-defined chunk size. And the balancing process moves the chunks between different shards whenever the data in unevenly distributed. 
 
