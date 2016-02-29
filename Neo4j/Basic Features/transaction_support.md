@@ -1,6 +1,6 @@
 #### [back](basic_features_main.md)
 
-Neo4j is compliance with the ACID properties and provides full transaction support. All operations in Neo4j that changes the graph will be run on a transaction. This means that an update query will be either fully executed or not at all. If you want to execute multiple update statement in one transaction, the following steps needs to be executed:
+Neo4j is compliant with the ACID properties and provides full transaction support. All operations in Neo4j that changes the graph will be run on a transaction. This means that an update query will be either fully executed or not at all. If you want to execute multiple update statement in one transaction, the following steps needs to be executed:
 
 1- First open a transaction.
 

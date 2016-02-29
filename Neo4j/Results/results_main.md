@@ -1,6 +1,6 @@
 #### [back](../Neo4j_Main.md)
 
 
-## Advantages and Limitations 
+## [Strengths and Weaknesses](strengths_weakness.md) 
 
 ## [Summary](summary.md)
