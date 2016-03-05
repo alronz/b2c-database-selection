@@ -2,12 +2,12 @@
 
 ### Underline data structures:
 
-Although Redis is a key-value datastore, it supports more than just the plain mapping of string keys to the string values. Instead it maps a key to different useful data structures that can be used to develop complex use cases. The key itself is binary safe which means it can be either a normal string or even a a binary content of a file. However it is a good practice not to use long keys since it will impact performance and increase memory usage. In addition, keys should be consistent and can be used to define namespaces for your applications e.g school:teacher:john. In this section, I am going to give a quick overview of the supported data types that can be used in Redis to store your data.
+Although Redis is a key-value datastore, it supports more than just the plain mapping of string keys to the string values. Instead it maps a key to different useful data structures that can be used to develop complex use cases. The key itself is binary safe which means it can be either a normal string or even a binary content of a file. However it is a good practice not to use long keys since it will impact performance and increase memory usage. In addition, keys should be consistent and can be used to define namespaces for your applications e.g school:teacher:john. In this section, I am going to give a quick overview of the supported data types that can be used in Redis to store your data.
 
 
 #### Strings
 
-String is the the simplest data type in Redis. It is also the most typically used data type in other key-value data stores. Inside this data type, you can store not only sting but also integers, floating point values or even a binary data such as an image or any file. However, the size of the stored value shouldn't exceed a maximum 512MB of data.
+String is the simplest data type in Redis. It is also the most typically used data type in other key-value data stores. Inside this data type, you can store not only sting but also integers, floating point values or even a binary data such as an image or any file. However, the size of the stored value shouldn't exceed a maximum 512MB of data.
 
 #### Lists
 
@@ -27,6 +27,6 @@ These aren't actually a separate data type, but a special case of string data ty
 
 #### HyperLogLogs
 
-Hyperloglogs are probabilistic data structures that are used to count unique items. The idea behind this data type is to avoid storing amount of data in memory that is proportional to the items that need to be counted. Instead by using a special algorithm to store only a constant amount of memory (around 12K bytes in the worse case) but with an error (less than 1% in Redis implementation) of the estimated count. Hyperloglogs are encoded as strings ,hence they are sharing similar commands.
+Hyperloglogs are probabilistic data structures that are used to count unique items. The idea behind this data type is to avoid storing amount of data in memory that is proportional to the items that need to be counted. Instead by using a special algorithm to store only a constant amount of memory (around 12K bytes in the worse case) but with an error (less than 1% in Redis implementation) of the estimated count. Hyperloglogs are encoded as strings, hence they are sharing similar commands.
 
 

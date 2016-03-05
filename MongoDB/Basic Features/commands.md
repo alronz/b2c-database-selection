@@ -1,6 +1,6 @@
 #### [back](basic_features_main.md)
 
-MongoDB provides normal CRUD operations to interact easily with your stored data. These operations can run only at the collection level. In the following sections I will talk briefly how to query or modify your stored data using MongoDB.
+MongoDB provides normal CRUD operations to interact easily with your stored data. These operations can run only at the collection level. In the following sections I will talk briefly about how to query and modify the stored data.
 
 
 #### Query Data
@@ -39,7 +39,7 @@ The _id will be generated automatically by MongoDB if not specified in the inser
 This method will insert many documents into the collection. You need just to specify an array of documents to be inserted as seen in the example below:
 
 ````
-db.products.insertOne([
+db.products.insertMany([
 {name:"TShirt", size:20 , price: 30 },
 {name:"TV", size:150 , price: 200 },
 {name:"Phone", size:100 , price: 120 },
@@ -66,7 +66,7 @@ db.products.insert([
 ])
 ````
 
-There are other methods that can create documents in MongoDB such as updateOne(), updateMany(), and replaceOne(). These methods will create a new document it couldn't find a document with the same specified filter and when their "upsert" option is set to true.
+There are other methods that can create documents in MongoDB such as updateOne(), updateMany(), and replaceOne(). These methods will create a new document if it couldn't find a document with the same specified filter and when the "upsert" option is set to true.
 
 
 
@@ -103,7 +103,7 @@ This is the same example we used in updateOne method but it will now update all 
 
 ##### db.collection.update()
 
-This is the general method and can be used to either update a single document or multiple documents inside a certain collection based on a particular filter and action. Both examples we saw previously can be used here with update method but we need to specify whether we want to update a single document or multiple documents using the 'multi' option  as seen in the example below:
+This is the general method and can be used to either update a single document or multiple documents inside a certain collection based on a particular filter and action. Both examples we saw previously can be used here but we need to specify whether we want to update a single document or multiple documents using the 'multi' option  as seen in the example below:
 
 
 ````
@@ -180,7 +180,7 @@ db.products.deleteMany(
 
 ##### db.collection.remove()
 
-This is the general method used by MongoDB to deleted documents from a collection based on a certain filter. You can use it to delete either a single or multiple documents by using the "justOne" option which is by default set to false.
+This is the general method used by MongoDB to delete documents from a collection based on a certain filter. You can use it to delete either a single or multiple documents by using the "justOne" option which is by default set to false.
 
 ````
 db.products.remove( 
@@ -211,6 +211,6 @@ db.collection.findOneAndDelete() is also available to find a single document bas
 Another general method used by MongoDB is db.collection.save() which can either updates an existing document if the document exists or creates a new document if it doesn't exist.
 
 
-Finally, you can search for a document and modify it in the same round trip atomically by using db.collection.findAndModify. This method is very useful especially in transaction related tasks since it is like you are runnung a find and modify command atomically at the same time. More details about this method are nicely explained in [MongoDB documentation.](https://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/)
+Finally, you can search for a document and modify it in the same round trip atomically by using db.collection.findAndModify. This method is very useful especially in transaction related tasks since it is like you are running a find and modify command atomically at the same time. More details about this method are in [MongoDB documentation.](https://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/)
 
 

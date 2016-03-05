@@ -1,13 +1,13 @@
 #### [back](getting_started_main.md)
 
-MongoDB stores its data in a document which is a data structure similar to the structures that maps values to keys such as hashes and dictionaries. These documents contain a JSON like data or what is called a BSON data. Many documents can be grouped into a one container called a collection which is similar to the table concept in the traditional databases. 
+MongoDB stores its data as documents which is a data structure similar to the structures that maps values to keys such as hashes and dictionaries. These documents contain a JSON like data or what is called a BSON data. Many documents can be grouped into a one container called a collection which is similar to the table concept in the traditional databases. 
 
 Below I will explain the three main concepts used in MongoDB which are the documents, collection and the BSON format.
 
 
 #### Documents
 
-All the data stored in MongoDB is stored in the form of a document. A document stores the data in a JSON-Like format called BSON which will be explained in more details later. This format stores the data as field-and-value pairs as seen in the below small example for a product object in an e commerce application:
+All the data stored in MongoDB is stored in the form of a document. A document stores the data in a JSON-Like format called BSON which will be explained in more details later. This format stores the data as key-value pairs as seen in the below small example for a product object in an ecommerce application:
 
 ````
 {
@@ -53,12 +53,12 @@ You can access any field in the document using the dot notation as shown in the 
 db.products.product.sku
 ````
 
-The products above is the name of the collection as will be explained in the following section.
+The "products" above is the name of the collection as will be explained in the following section.
 
 
 #### Collections
 
-A collection in MongoDB is an important concept which is used to as a group of multiple documents. If we say that a document in MongoDB is similar to a row in tradition databases then the collection is analog of a table. 
+A collection in MongoDB is an important concept which is used to group multiple documents. If we say that a document in MongoDB is similar to a row in tradition databases then the collection is analog of a table. 
 
 A collection in MongoDB can contain document with different schema or what is called a dynamic schema support. This means that inside a single collection we can store documents with completely different values as shown in the example below:
 
@@ -69,7 +69,7 @@ A collection in MongoDB can contain document with different schema or what is ca
 
 As seen above we can store a product document and a category document in the same collection. However it makes sense only to store similar documents in the same collection for the following reasons:
 
-* For grouping and querying reasons, it would be easier to query a collection with a similar structure. For example if you want to query all products that are having the same manufacture, you just query the products collection.
+* For grouping and querying reasons, it would be easier to query a collection with a similar structure. For example if you want to query all products that are having the same manufacturer, you just query the "products" collection.
 * Grouping similar documents in the same collection allows for data locality.
 * You can index a collection more efficiently.
 
@@ -88,12 +88,12 @@ MongoDB supports the common data types that are used on most programming languag
 
 ##### Object, Object id
 
-The object data type stores an embedded document and the object id is a  unique key consists of 12-bytes, and the first four bytes are a timestamp that reflect the ObjectId’s creation date.
+The object data type stores an embedded document and the object id is a unique key consists of 12-bytes, and the first four bytes are a timestamp that reflects the ObjectId’s creation date.
 
 
 ##### Array and Binary data
 
-You can also store an array inside a MongoDB BSON document that can contains other embedded documents or any other data types values. MongoDB supports also storing binary data such as an image or a file inside the BSON document.
+You can store an array inside a MongoDB BSON document that can contains other embedded documents or any other data types values. MongoDB supports also storing binary data such as an image or a file inside the BSON document.
 
 
 ##### Regular Expressions
@@ -102,9 +102,9 @@ This datatype is used to store regular expression.
 
 ##### Other data types:
 
-Min/ Max keys : This is used if you want to compete a value against either the min or max BSON fields.
+Min/ Max keys : This is used if you want to compute a value against either the min or max BSON fields.
 
-JavaScript : TThis datatype is used if you want to store some javascript code into the BSON document.
+JavaScript : This datatype is used if you want to store some javascript code into the BSON document.
 
 
 

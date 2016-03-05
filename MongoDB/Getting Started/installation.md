@@ -4,7 +4,7 @@ MongoDB can be installed on most platforms. I will explain below how to install 
 
 ##### Windows Systems
 
-MongoDB is supported on most of Windows versions except for Windows XP. To install MongoDB, first you need to download the latest production version of MongoDB that is suitable for your Windows architecture (32 or 64 bit) from [MondoDB website](https://www.mongodb.org/downloads?_ga=1.147842807.1782745976.1443197794#production). 
+MongoDB is supported on most of Windows versions except Windows XP. To install MongoDB, first you need to download the latest production version of MongoDB that is suitable for your Windows architecture (32 or 64 bit) from [MondoDB website](https://www.mongodb.org/downloads?_ga=1.147842807.1782745976.1443197794#production). 
 After downloading the MongoDB installation file (a file with .msi extension), double click the file to start the installation. Follow the guided installation screens till the end which should be easy to follow. 
 When the installation is completed, you can start MongoDB using the following commands assuming you have installed MongoDB in your C driver:
 
@@ -34,7 +34,7 @@ MongoDB can be installed on Linux Red Hat Enterprise or CentOS versions 5, 6, an
 vi /etc/yum.repos.d/mongodb-org-3.2.repo
 ````
 
-Then paste the below inside the file and save it:
+Paste the below inside the file and save it:
 
 ````
 [mongodb-org-3.2]
@@ -85,7 +85,7 @@ To install MongoDB from source, you first need to download the binary files from
 tar -zxvf mongodb-downloaded-files.tgz
 ````
 
-Finally export the path to the environment configuration using:
+Finally export the path of the environment configuration using:
 
 ````
 export PATH=<mongodb-install-directory>/bin:$PATH

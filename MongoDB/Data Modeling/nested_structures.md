@@ -1,3 +1,3 @@
 #### [back](data_modeling_main.md)
 
-MongoDB supports very weel nested structures by allowing documents to have easily embedded document or an array of embedded documents. This feature gives great flexibility when modeling your data. To see what are the supported data types that can be using inside a document, please have a look at [MongoDB documentation](https://docs.mongodb.org/v3.0/reference/bson-types/). 
+MongoDB supports very well nested structures by allowing documents to embed single or multiple documents. This feature allows for great flexibility during data modelling. 

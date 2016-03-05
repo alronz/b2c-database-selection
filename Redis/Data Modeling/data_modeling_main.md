@@ -8,8 +8,6 @@
 
 ## [Normalization](normalization.md) 
 
-## Data Evolution and Versioning
-
 ## [Nested Data Structures](nested_structures.md)
 
 ## [Refernces](refernces.md)

@@ -1,7 +1,7 @@
 #### [back](search_data_main.md)
 
 
-In many use cases, we will need a way to aggregate values across multiple documents, compute some operations on the aggregated values and then return  results.  MongoDB supports three ways to do just that, either through the pipeline aggregation framework, or by using the map reduce data processing paradigm or through some supported uses-specific functions such as distinct, group and count functions that have been already explained in [previous section.](queryOptions.md)
+In many use cases, we will need a way to aggregate values across multiple documents, compute some operations on the aggregated values and then return results.  MongoDB supports three ways to do just that, either through the pipeline aggregation framework, or by using the map reduce data processing paradigm or through some supported uses-specific functions such as distinct, group and count functions that have been already explained in [previous section.](queryOptions.md)
 
 
 In the following sections, I will show briefly how to group and filter your data using the pipeline framework and the map reduce data processing model.
@@ -64,7 +64,7 @@ db.orders.mapReduce(
                    )
 ````
 
-In the above example, we will first execute the query part to get all products with price greater than or equal to 10. Then these matched documents will be processed by the map operation to get the order status and all order prices with this status. Finally the reduce function will  sum all the order prices for each order status and return result like below:
+In the above example, we will first execute the query part to get all products with price greater than or equal to 10. Then these matched documents will be processed by the map operation to get the order status and all order prices with this status. Finally the reduce function will sum all the order prices for each order status and return result like below:
 
 ````
 {

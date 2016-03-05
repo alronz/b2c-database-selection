@@ -1,6 +1,6 @@
 #### [back](basic_features_main.md)
 
-As explained in the [Query Language section](commands.md), MongoDB provides methods to update,remove,replace or insert multiple documents at the same time such as db.collection.insertMany(), db.collection.updateMany(), and db.collection.deleteMany(). In addition, MongoDB supports another method that can be used to execute a bulk of write operations such as insert, update and delete at the same time. In the following section, I will explain how to do a bulk write in MongoDB.
+As explained in the [Query Language section](commands.md), MongoDB provides methods to update,remove,replace or insert multiple documents at the same time such as db.collection.insertMany(), db.collection.updateMany(), and db.collection.deleteMany(). In addition, MongoDB supports another method that can be used to execute a batch of write operations such as insert, update and delete at the same time. In the following section, I will explain how to do a bulk write in MongoDB.
 
 ####  db.collection.bulkWrite()
 
@@ -70,3 +70,29 @@ By default MongoDB consider the bulk write as ordered unless specified otherwise
 
 
 You can also use a write concern which describe the level of acknowledgement request from MongoDB for these write operations. For more details on using the bulk write method, please have a look to [MongoDB documentations](https://docs.mongodb.org/manual/core/bulk-write-operations/). 
+
+
+Additionally, MongoDB supports two useful tools (mongoexport and mongoimport) that can be used to migrate data between different mongodb instances. By using mongoexport and mongoimport, you can easily export or import data in a CSV or BSON format. It is also possible to provide a query so that you can export only a part of the data in a certain collection. Examples are given below:
+
+Export data in csv format:
+
+````
+mongoexport --db users --collection contacts --type=csv --fields name,address --out /opt/backups/contacts.csv
+````
+
+As seen above you can specify which fields to export as well as the export path.
+
+Export data in BSON format:
+
+````
+mongoexport --db sales --collection contacts --out contacts.json
+````
+
+Then to import the data, you can run the import command as shown below:
+
+````
+mongoimport --db users --collection contacts --file contacts.json
+````
+
+
+

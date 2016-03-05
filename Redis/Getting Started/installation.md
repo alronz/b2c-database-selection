@@ -26,7 +26,7 @@ $ ./redis-server
 
 ```
 
-You will get  a warning that configuration file (redis.conf) couldn't be found which is ok for now since Redis will use the defaults. We will talk about Redis configuration on details on later [section](../Adminstration/configurations.md).
+You will get a warning stating that the configuration file (redis.conf) couldn't be found which is ok for now since Redis will use the defaults. We will talk about Redis configuration on details on later [section](../Adminstration/configurations.md).
 
 #### 2- Using package managers:
 Installing redis using package managers is even more convienient and preferable for many users. Below you can see how to install Redis using the popular package managers:

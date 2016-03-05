@@ -15,6 +15,4 @@
 
 ## [Availability](availability.md) 
 
-## [Data migration ](data migration.md)
-
 ## [Refernces](refernces.md)

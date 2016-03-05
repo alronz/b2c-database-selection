@@ -1,5 +1,8 @@
+#### [back](../admin_main.md)
 
-MongoDB uses a configuration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. The file has a [YAML format](http://www.yaml.org/start.html). As an example, below are the some basic configuration:
+
+
+MongoDB uses a configuration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. The file has a [YAML format](http://www.yaml.org/start.html). As an example, below are some basic configurations:
 
 ````
 processManagement:
@@ -15,7 +18,9 @@ systemLog:
    logAppend: true
 storage:
    journal:
-      enabled: true````
+      enabled: true
+  
+ ````
 
 
 When you start your mongod or mongos instance, you need to specify the configuration file that will be used as shown below:

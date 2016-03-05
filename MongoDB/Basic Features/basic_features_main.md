@@ -5,6 +5,6 @@
 
 ## [Transaction Support](transaction_support.md)
 
-## [Bulk Support](Pipline support.md)
+## [Data import and export](Pipline support.md)
 
 ## [Refernces](refernces.md)

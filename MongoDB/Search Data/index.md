@@ -1,6 +1,6 @@
 #### [back](search_data_main.md)
 
-Index is a very important concept in any database to support efficient execution of queries. For instance, MongoDB must perform a full collection scan if we don't create index in one of the fields that we want to query. Indexes acts like the table of contents used to find a certain book in a very large book. MongoDB indexes are created using the efficient B-tree data structure to store small portion of information used to speed up queries by limiting the number of documents to be searched. These information will be stored using the B tree structure in order which is useful to perform range queries or sorting. 
+Indexing is a very important concept in any database to support efficient execution of queries. For instance, MongoDB must perform a full collection scan if we don't create index in one of the fields that we want to query. Indexes acts like the table of contents used to find a certain topic in a very large book. MongoDB indexes are created using the efficient B-tree data structure to store small portion of information used to speed up queries by limiting the number of documents to be searched. These information will be stored using the B tree structure in order useful to perform range queries or sorting. 
 
 
 MongoDB supports a variety of index types that are defined on the collection level and can apply to any field or subfield in the document. MongoDB supports the following index types:
@@ -35,7 +35,7 @@ Create index on the name field:
 db.products.createIndex({"name":1})
 ````
 
-In the above example we created an ascending/descending index on the name field of the products collection. If you want to create an index on a sub-field, you can use the dot notation as seen below:
+In the above example we created an index on the name field of the products collection. If you want to create an index on a sub-field, you can use the dot notation as seen below:
 
 ````
 db.products.createIndex({"address.street":1})
@@ -107,7 +107,7 @@ The above index won't be created since more than one multi-key index needs to be
 
 MondoDB supports two type of Geospatial indexes to allow for efficient queries of geospatial data. The first index is called 2d indexes which is used for planner geometry data. The second is called 2 sphere indexes which is used for spherical geometry data.
 
-These indexes stores your data as GeoJSON objects and supports many types such as point, polygon , multipoint and many others. For more information about how to use these types of indexes, please have a look at [MongoDB documentations](https://docs.mongodb.org/manual/applications/geospatial-indexes/).
+These indexes stores your data as GeoJSON objects and supports many types such as point, polygon, multipoint and many others. For more information about how to use these types of indexes, please have a look at [MongoDB documentations](https://docs.mongodb.org/manual/applications/geospatial-indexes/).
 
 
 
@@ -125,7 +125,7 @@ Like Multi-Key indexes, you are allowed to use only one text index inside the co
 
 #### Hash Index
 
-Hash index is used to store the hash value of the really values of the indexed field. If the indexed field is a sub-document, then it will collapses the whole document and compute the hash for all fields inside this sub-document. This index is used when you want to shard a collection by certain hash shard keys. This type of index doesn't support multi-key indexes. You can create a hash index using the "hashed" keyword as seen below:
+Hash index is used to store the hash value of the real values of the indexed field. If the indexed field is a sub-document, then it will collapse the whole document and compute the hash for all fields inside this sub-document. This index is used when you want to shard a collection by certain hash shard keys. This type of index doesn't support multi-key indexes. You can create a hash index using the "hashed" keyword as seen below:
 
 ````
 db.products.createIndex( { name: "hashed" } )

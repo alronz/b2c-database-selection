@@ -3,8 +3,6 @@
 
 ## [Scripting Support](scripting.md) 
 
-## ORM support 
-
 ## [Pub/Sub](pub_sub.md)
 
 ## [Expire](expire.md)

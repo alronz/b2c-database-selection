@@ -1,7 +1,6 @@
-
-
-
 #### [back](basic_features_main.md)
+
+In order to do operations on the values stored in Redis such as add, update, get or remove, a set of commands for each data type are provided. Those commands can be executed on [bulk](Pipline support.md) and a partial [transaction](transaction_support.md) is supported  as will be explained later in details. Executing these commands can be done using the built-in client "redis-cli" or by using one of the supported [clients](http://redis.io/clients) specific for many programming languages. Redis has a relatively short list of commands that can be easily learned in few hours. In the following sections I will explain the popular commands for each data type including commands on the "key". For a complete list of all the commands available in Redis, please check [Redis documentation.](http://redis.io/commands).
 
 
 #### Commands on Key
@@ -21,7 +20,7 @@ redis> EXISTS key1 key2
 (integer) 2
 ````
 
-"KEYS pattern"" is used to search keys and returns all keys that match the given pattern. You should pay attention when using this command on a production environment since it will impact the system performance severely because it has a time complexity of O(N).
+"KEYS pattern" is used to search keys and returns all keys that match the given pattern. You should pay attention when using this command on a production environment since it can severely impact the system performance because it has a time complexity of O(N).
 
 ````
 redis> KEYS *o*
@@ -29,7 +28,7 @@ redis> KEYS *o*
 2) "four"
 ````
 
-"RENAME" is used to rename the key. "RENAMENX" is another command used to rename key only if the new key name doesn't exists.  Both commands are mainly used for security purposes to hide the commands in case of an unauthorised access.
+"RENAME" is used to rename the key. "RENAMENX" is another command used to rename key only if the new key name doesn't exists.
 
 
 ````
@@ -41,7 +40,7 @@ OK
 redis> RENAMENX mykey myotherkey
 (integer) 0 // myotherkey already exists
 ````
-"TYPE" is a command to be used if you want to get the underline data type of a particular key.
+"TYPE" is a command to get the underline data type of a particular key.
 
 ````
 redis> TYPE key1
@@ -52,7 +51,7 @@ list
 
 #### Commands on String
 
-"GET" and "SET" are two commands that can be used to retrieve/set the value of a certain key. When you use "SET", it will overwrite the value if it already exists. However "SETNX" will set the value only if it doesn't exist. Other similar commands are "MGET,MSET,MSETNX" which are used to get or set multiple keys at the same time.
+"GET" and "SET" are used to retrieve/set the value of a certain key. When you use "SET", it will overwrite the value if it already exists. However "SETNX" will set the value only if it doesn't exist. Other similar commands are "MGET,MSET,MSETNX" which are used to get or set multiple keys at the same time.
 
 ````
 redis> SET mykey "Hello"
@@ -137,7 +136,7 @@ redis> LRANGE mylist 0 0
 
 ````
 redis> LLEN mylist
-(integer) 2
+(integer) 3
 ````
 
 "LTRIM" is used to remove elements from the list by a certain range.
@@ -192,8 +191,6 @@ redis> HINCRBY myhash field 1
 redis> HDEL myhash field1
 (integer) 1
 ````
-In order to do operations on the values stored in Redis such as add,update, get or remove, a set of commands for each data type are provided. Those commands can be executed on [bulk](Pipline support.md) and a partial [transaction](transaction_support.md) is supported  as will be explained later in details. Executing these commands can be done using the built-in client "redis-cli" or by using one of the supported [clients](http://redis.io/clients) specific for many programming languages. Redis has a relatively short list of commands that can be easily learned in few hours. In the following sections I will explain the popular commands for each data type including commands on the "key". For a complete list of all the commands available in Redis, please check [Redis documentation.](http://redis.io/commands).
-
 
 #### Commands on Sets
 
@@ -214,7 +211,7 @@ redis> SCARD myset
 
 #### Commands on Sorted Sets
 
-"ZADD" is used like normal sets to add an element or elements to the sorted list but we should also provide a score for each element.
+"ZADD" is used like normal sets to add elements to the sorted set but we should also provide a score for each element. The scroe can be used later to sort the set, and do range queries on the set.
 
 ````
 redis> ZADD myzset 2 "two" 3 "three"
@@ -232,11 +229,11 @@ redis> ZADD myzset 3 "three"
 (integer) 1
 redis> ZCARD myzset
 (integer) 3
-redis> ZCOUNT myzset 1 3
+redis> ZCOUNT myzset 1 2
 (integer) 2
 ````
 
-"ZRANGE" gets the elements in a sorted set between certain range. "ZRANK, ZREVRANK" determine the rank of an element in the sorted list based on its score either ordered from low to high or the other way around. ZRANGEBYSCORE is used to get elements in the sorted set with score between a certain range.
+"ZRANGE" gets the elements in a sorted set between certain range. "ZRANK" determine the rank of an element in the sorted set based on its score ordered from low to high.  "ZREVRANK" will do the same but ordered from high to low. "ZRANGEBYSCORE" is used to get elements in the sorted set with score between a certain range.
 
 ````
 redis> ZRANGE myzset 2 3
@@ -274,7 +271,7 @@ redis> BITCOUNT mykey
 (integer) 26
 ````
 
-"BITOP" is used to perform a bitwise operation between multiple keys and  store the result in a destination key. Operations are  AND, OR, XOR and NOT.
+"BITOP" is used to perform a bitwise operation between multiple keys and store the result in a destination key. Operations are AND, OR, XOR and NOT.
 
 ````
 redis> BITOP AND dest key1 key2

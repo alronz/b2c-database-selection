@@ -1,3 +1,6 @@
+#### [back](../admin_main.md)
+
+
 In any production environment, we should have a backup strategy to restore our data back in case of failures. MongoDB provides a tool called mongodump that can read data from the database and creates a backup BSON files. To restore the created backup files, you can use the mongorestore tool to populate the MongoDB database with the backup BSON files.
 
 
