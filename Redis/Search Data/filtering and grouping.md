@@ -13,7 +13,7 @@ this.jedisClient.sadd("Product.Manufacture.Index:" + map.get("Manufacture"),
 ````
 
 
-In the above example, we create a set for each manufacturer and then insert all product Ids of products produced by this manufacturer. Then to get all the products produced by this manufacturer, we can run a query like below:
+In the above example, we created a set for each manufacturer and then inserted all product Ids of the products produced by this manufacturer. Then to get all the products produced by this manufacturer, we can run a query like below:
 
 ````
 this.jedisClient.smembers("Product.Manufacture.Index:" + manufacturer) ;
@@ -21,7 +21,7 @@ this.jedisClient.smembers("Product.Manufacture.Index:" + manufacturer) ;
 
 ##### Filtering Data
 
-To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted set data structures. For example if you want to get all products that are produced by a certain manufacturer and having the red colour, then you can intersect the "Product.Manufacture.Index:manufacturer" and "Product.Color.Index:colour" sets as shown below:
+To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. For example if you want to get all products that are produced by a certain manufacturer and having the red colour, then you can intersect the "Product.Manufacture.Index:manufacturer" and "Product.Color.Index:colour" sets as shown below:
 
  ````
  this.jedisClient.sinter("Product.Manufacture.Index:Boss" , "Product.Color.Index:Red");

@@ -1,14 +1,14 @@
 #### [back](example_main.md)
 
-In this example, I will show how to use Redis to store the shopping cart of a B2C application. Usually the shopping cart data is stored in the client side as a cookie. The advantage of doing this is that you wouldn't need to store such a temporary data in your database. However this will require you to send the cookies with every web request which can slow down the request in case of large cookies. Storing shopping cart data in Redis is a good idea since you can retrieve them very faster at any time and persisting this data is also possible if needed.
+In this example, I will show how to use Redis to store the shopping cart of a B2C application. Usually the shopping cart data is stored in the client side as a cookie. The advantage of doing this is that you wouldn't need to store such a temporary data in your database. However this will require you to send the cookies with every web request which can slow down the request in case of large cookies. Storing shopping cart data in Redis is a good idea since you can retrieve them very faster at any time and persist this data is possible if needed.
 
 
-To show how you can use Redis to store shopping cart information, I have created a shopping cart management service which will support the below rest API calls:
+To show how you can use Redis to store shopping cart information, I have created a shopping cart management service which will support the below rest APIs:
 
-![image](CartManagementAPi.png =700x250)
+![image](https://s3.amazonaws.com/b2cbucket/CartManagementAPi.png)
 
 
-The cart can be stored easily in Redis in a Hash data structure. In the example I used, the cart has many cart items and each cart item has the below fields:
+The cart can be stored easily in Redis inside a Hash data structure. In the example I used, the cart has many cart items and each cart item has the below fields:
 
 ```
 private String sku;  // the sku of the product
@@ -16,12 +16,14 @@ private Double amount; // the amount from this product
 private Double price; // the price of the product
 ```
 
-So we store in Redis for each logged in user session, a cart hash with a key like "cart:{sessionID}". Inside this hash, we will have the cart items with the product sku as a key. 
+So we store for each user session, a cart object inside a hash with a key like "cart:{sessionID}". Inside this hash, we store the cart-item's sku as a key and the value is the item details in JSON format.
+
+![image](https://s3.amazonaws.com/b2cbucket/cart.png)
 
 * Add cart item to cart:
 
 
-The customer can add a product in his cart by calling /cart/add/{session} and the below will be executed:
+The customer can add items to his cart by calling /cart/add/{session} and the below will be executed:
 
 ```
     @POST
@@ -67,7 +69,7 @@ The customer can add a product in his cart by calling /cart/add/{session} and th
 	}
 ```
 
-As you can see it is quite simple, we just need to insert the product inside the user's cart using hset command. Before that we need to check if the amount of this product is zero, then we will update the cart by removing this product. Which means you can use this API call to add or update the cart. Another important note is that we need to set an expiration for this cart if we don't want to persist the cart information. We do this by using the expire command. In this example we expire the cart each 10 hours.
+As you can see it is quite simple, we just need to insert the cart item inside the user's cart using hset command. Before that we need to check if the amount of this item is zero, then we will update the cart by removing this item. Otherwise, we will add the item to the cart using hset command.  We also expire this cart after some cart validation time using the expire command so that we don't persist the cart information forever. In this example we expire the cart each 10 hours.
 
 
 * delete item from the cart
@@ -114,7 +116,7 @@ Deleting a product from the user's cart is similar to adding the product into th
 
 * Get cart details
 
-To get the cart details we use the Redis command hgetAll which will return all the products inside the cart as seen below:
+To get the cart details, we use the Redis command hgetAll which will return all the products inside the cart as seen below:
 
 ```
     @GET

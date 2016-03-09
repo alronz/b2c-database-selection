@@ -1,11 +1,11 @@
 #### [back](example_main.md)
 
-For many websites nowadays, large part of the pages are rarely changing. To improve the performance for the website, a caching mechanism needs to be used when generating web pages from server side. As a very fast in-memory database, Redis can be easily used as a cache service. There are many production ready cache implementations available which were build by using Redis. Also Redis can be configured to act only as a cache and support directly out of the box the popular cache eviction algorithms such as LRU and others. However in this example we are showing how to build the basic functionalities of a cache service using Redis. This service will support the below rest API:
+For many websites nowadays, large part of the pages are rarely changing. To improve the performance, a caching mechanism needs to be used when generating web pages in the server side. As a very fast in-memory database, Redis can be easily used to act like a cache service. There are many production-ready cache implementations available which were build using Redis. Redis can be configured as a cache and to support directly out-of-box popular cache eviction algorithms such as LRU and others. However in this example we are showing how to build the basic functionalities of a cache service using Redis. This service will support the below rest API:
 
-![image](CacheManagement.png =700x70)
+![image](https://s3.amazonaws.com/b2cbucket/CacheManagement.png)
 
 
-Using this API you can check if the page has been already cached (a cache hit) and return the cached content. Otherwise, in case of a cache miss we cache the page content for the upcoming requests. The implementation of this API is shown below:
+Using this API you can check if the page has been already cached (a cache hit) and return the cached content. Otherwise in case of a cache miss, we cache the page content for the upcoming requests. The implementation of this API is shown below:
 
 ````
     @GET
@@ -57,4 +57,4 @@ Using this API you can check if the page has been already cached (a cache hit) a
 	}
 ````
 
-So we store the page contents inside a Redis String data structure and retrieve the contents using Redis get command. In case the page wasn't cached previously we use the useful Reids command setex to store the page contents and set an expiration time at the same time. 
+So we store the page contents inside a Redis String data structure and then retrieve the content using the get command. In case the page wasn't cached previously we use the useful Reids command setex to store the page contents and set an expiration time at the same time. 

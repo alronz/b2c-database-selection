@@ -7,7 +7,6 @@
 
 ## [Persistence, and ACID Support](persistance.md)
 
-## [Handling failure](handling_failure.md) 
 
 ## [Backup](backup.md)
 

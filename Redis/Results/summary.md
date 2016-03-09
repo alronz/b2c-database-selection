@@ -56,59 +56,96 @@ Redis doesn't support nested structures. For instance, Hash, lists and sets inte
 
 ##### Built-in query functions
 
+Count function is supported in Redis using different commands for each data type such as LLEN, SCARD, and ZCARD. Min and Max functions can be achieved using a sorted set using commands such as ZRANGEBYSCORE, and ZREVRANGEBYSCORE. Finally, there is no support for aggregate functions such as sum and average and these functions need to be handled manually in the client application.
+
 
 ##### Query
 
+Redis is a key-value database which means you can query your data easily using the keys. A secondary or compound index-like can be created and maintained manually to support querying using fields other than the key. Finally, Range queries are supported using sorted sets. 
 
 
 ##### Full Text Search
-
+Redis doesn't support full-text search internally, but some search engines can be used with Redis such as elastic search and Apache Solr.
 
 ##### Regular Expressions
 
+Redis supports some search commands that uses regular expressions such as KEYS which searches all keys in a Redis instance. Additionally Redis supports the SCAN command which is used to search and iterate through all keys and values (SSCAN, HSCAN, and ZSCAN are the same but specific for each data type). KEYS and SCAN can use global-style regular expression patterns.
 
 
 ##### Indexing
 
+Redis is a key-value store, the key acts as the primary index in all data structures. Redis doesn't support internally other type of indexes such secondary and compound indexes. However, secondary and compound indexes can be implemented and maintained manually by the clients using sets and sorted sets.  Although creating secondary indexes and compound indexes is still possible somehow using sets and sorted sets, maintaining theses indexes manually at each write operation can be difficult and is prone to human error. 
 
+##### Grouping and Filtering
 
-##### Aggregation
-
+In general, grouping and filtering data in Redis is done. To group your data in Redis, the set data structure is the best candidate since you will be able to easily insert elements from the same group type as members of the set. using sets and sorted sets. To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. 
 
 ##### Sorting
 
+Redis supports a sort command that can be used to sort most of Redis data structures such as lists, sets and sorted sets. This sort command can sort your data ascendingly, descendingly or alphabetically. You can also sort by a specific pattern or limit the returned data. Another useful feature of the sort command, is that you can also sort by external keys.
+
+##### Lua scripting
+
+Redis allows you to execute Lua scripts inside the Redis server. Scripting Redis with Lua is useful and can be used to avoid some common pitfalls that slow down development or reduce performance. To load the script to Redis server you can use either EVAL or EVALSHA commands which will evaluate the scripts using the Lua interpreter and load it. By using EVAL you can simply load a Lua program without defining a Lue function and pass arguements to the Lua program as redis keys.  The script is executed in Atomicity way which makes it useful for transaction related tasks.
 
 
-##### Document Validation Feature
+##### Pub/Sub
+
+This is a special feature of Redis that can be used to implement applications such as a chat server. The idea is mainly characterised by listeners who can subscribe to certain channels to receive real time messages. The publishers can send binary messages of type string to channels without having any knowledge of whether there are subscribers or not. This feature is following the publish/subscribe messaging paradigm. 
 
 
+##### Expire
 
-##### GridFS Feature
+In Redis you can set a timeout on a key. It means that the key will be automatically deleted after the timeout period expires. This feature makes Redis a good database to implement cashing and similar applications.
 
+##### Configure Redis as a cache
+
+If you plan to use Redis as a cache system, then instead of expiring keys manually you can just let Redis take care of this automatically. Redis provides a way to easily configure your Redis server to act as a cache.  For instance you can use the below configurations to allow for a maximum of 2mb memory limit and make all keys expire automatically.
 
 
 ##### Configuration
 
+Redis can start without a configuration file and then it will take its built-in default configurations. Redis stores its configurations inside a file called redis.config and you can also pass configuration parameters via the command line. Configuring Redis while the server is running is also possible without the need to stop or restart the server using CONFIG GET , and CONFIG SET.
+
 
 ##### Scalability
 
+Scaling reads in Redis is done using replications where slave instances can share the read load. Scaling writes is supported using sharding. The important question about sharding is who will shard the data. In Redis, the partitioning can be done in the client side where the clients directly select the right instance to be used to write or read a certain key. Most of the clients or drivers that are provided by Redis have implementations for partitioning. Another implementation for partitioning is by using a proxy which means that clients send request to a proxy that is able to interact with Redis and will forward the clients' requests to the right Redis instance then send back the reply to the clients. A famous proxy used by Redis and Memcached is [Twemproxy](https://github.com/twitter/twemproxy). Finally it is also possible to use an implementation for partitioning called query routing where you just send your requests to a random instance that will forward your request to the right Redis instance. Starting from Redis version 3.0, Redis cluster is the preferred way to get automatic partitioning and high availability. Redis cluster uses a hybrid implementation of query routing and some clients side implementation. I will explain in the following section how to use Redis cluster to do partitioning.
 
 
 ##### Persistency
 
 
+Redis supports two ways to persist data on disk. The first option is called snapshotting or RDB which takes a snapshot of the current data periodically (based on pre-configured value) and store it on disk. The second option is called append-only file or AOF which simply works by logging the operations that modifies the data (write operations) into a log file. Processing this log file later if needed will produce the same dataset that was in memory. Additionally depending on your durability requirements, you need to set the fsync options as explained below:
 
+- "fsync every" when new command is logged to the AOF. This option is used if you want to have a full durability support but it is also a very slow option. 
+ - "fsync every second". This is the default configuration which will provide a good durability option but with a 1 second data lose risk in case of a disaster.This option is fast enough.
+ - "Never fsync", using this option will let the operating system handle the fsync which can be very unsafe in term of durability. On the other hand, this option is very fast.
+
+
+Atomicity can be guaranteed by executing a group of commands either using MULTI/EXEC blocks or by using a Lua script.
+Consistency is guaranteed by using the WATCH/UNWATCH blocks.
+Isolation is always guaranteed at command level, and for group of commands it can be also guaranteed by MULTI/EXEC block or a Lua script.
+Full Durability can be also guaranteed when using AOF with executing fsync with each new command as explained before.
 
 ##### Backup
 
+Backup in Redis is basically the snapshots that were taken of your dataset if the snapshot option is enabled. Your data will be stored in an RDB file called dump.rdb file in your redis directory. To restore your data, you just need to move this dump file to your Redis directory and then start up your server. To have a better backup, you can use snapshotting with replication so that you will have the same copy of your data in all your instances including masters and slaves. This will ensure that your data is save in case the master server crashed completely
 
 
 
 ##### Security
 
+Redis doesn't provide any access control and this should be provided by the a separate authorization layer.  However Redis provides an authentication mechanism that is optional and can be turned on from redis.conf. Redis supports the BIND command to allow only specific IP addresses to access the Redis server for better security. Redis doesn't also support any encryption mechanism and this should also be implemented using a separate layer like using encryption mechanisms such as SSL proxy. The "rename-command” used to rename the original commands which reduces the risk that might happen if unauthorised clients access your server. Finally,  NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping. NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping.
+
 
 ##### Upgrading
+
+Redis doesn't support online upgrades (server must restart and the clients can't connect to it during the upgrade window). A workaround for online upgrade is to start a slave server and direct all the clients to it while you do an upgrade to the master. After the upgrade is finished in the master, we can stop the slave server and then redirect the clients requests again to the master server.
 
 
 ##### Availability
 
+Redis provides a distributed system called Redis Sentinel to guarantee high availability. Redis Sentinel can resist certain types of failures automatically without any human intervention. Redis Sentinel can be used also for other tasks such as monitoring, as a configuration provider for clients and as a notification system. By Monitoring we mean that Redis Sentinel will monitor your master and slave instances and check if they are working as expected. It will also send notifications to the admin in case anything went wrong. Clients can also contact the Redis Sentinel to get any configurations parameters for a certain Redis instance such as address and port. Finally Redis Sentinel will start a failover process in case the master is not working to promote one of the slaves to replace it and reconfigure the other slaves to contact this new master.
+
+An important note is that in order to get the best robustness out of Redis Sentinel, you should configure it in such a way that it will not be a single point of failure. This means that you use multiple instances in separate machines or virtual machines that fail independently which can cooperate together to handle Redis failure detection and recovery.  You need at least three Redis Sentinel instance to guarantee its Robustness. 

@@ -1,8 +1,6 @@
 #### [back](../Redis_Main.md)
 
 
-## Advantages and Limitations 
+## Strengths and Weaknesses
 
-## Comparison Table
-
-## Summary
+## [Summary](summary.md)

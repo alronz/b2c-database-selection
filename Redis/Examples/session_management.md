@@ -1,17 +1,17 @@
 #### [back](example_main.md)
 
-As we have already mentioned in the cart management example, using cookies is a good idea for temporary data such as login information and carts. However, the cookies will be sent back and forth between the server and the client with each request. This is usually fine since cookies are most of the time very small but when the cookies are large then this might slow down the requests. Since Redis is a very fast in memory database, we can use it to store login cookies or to handle login sessions. In this example I will be showing how to use Redis to do just that.
+As we have already mentioned in the cart management example, using cookies is a good idea for temporary data such as login information and carts. However, the cookies will be sent back and forth between the server and the client with each request. This is usually fine since cookies are most of the time very small but when cookies getting larger, it might slow down the requests. Since Redis is a very fast in-memory database, we can use it to store login cookies or to handle login sessions. In this example I will be showing how to use Redis to do just that.
 
 To show how to use Redis to manage login sessions, I have created a session management service with the following rest API support:
 
-![image](SessionManagement.png =700x250)
+![image](https://s3.amazonaws.com/b2cbucket/SessionManagement.png)
 
 
-Storing a session in Redis can be achieved by using a simple String data structure where the key is login token and value is the login details. 
+Storing a session in Redis can be achieved by using a simple String data structure where the key is a login token and the value is the login details. 
 
 * add new session
 
-Adding a new session is done using the below code:
+Adding a new session is done using the below:
 
 ````
     @POST
@@ -56,7 +56,7 @@ Adding a new session is done using the below code:
 	}
 ````
 
-So we store the login session inside a Redis string data structure using the set command. We also store the recent login sessions inside a sorted set along with the timestamp so that we can later retrieve the recent sessions sorted by time. Adding an element to a sorted set is achieved by using the zadd command and we use the zremrangeByRank command to keep just the last 100 elements sorted by timestamp and remove the rest which will prevent the set from growing beyond 100 elements. Finally we use expire command to delete the session after particular time (in the example we are using 10 hours).
+So we store the login session as a string using the set command. We also store the recent login sessions inside a sorted set along with the timestamp so that we can later retrieve the recent sessions sorted by time. Adding an element to a sorted set is achieved by using the zadd command and we use the zremrangeByRank command to keep just the last 100 elements sorted by timestamp and remove the rest which will prevent the set from growing beyond 100 elements. Finally we use expire command to delete the session after particular time (in the example we are using 10 hours).
 
 
 * Get session details 

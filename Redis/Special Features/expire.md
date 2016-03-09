@@ -1,6 +1,6 @@
 #### [back](special_features_main.md)
 
-In Redis you can set a timeout on a key. It means that the key will be automatically deleted after the timeout expires. This feature makes Redis a good database to implement cashing and similar applications. Using this feature is so easy and can be done using the command EXPIRE and by providing the timeout as shown in the example below:
+In Redis you can set a timeout on a key. It means that the key will be automatically deleted after the timeout period expires. This feature makes Redis a good database to implement cashing and similar applications. Using this feature is so easy and can be done using the command EXPIRE and providing the timeout as shown in the example below:
 
 ````
 redis> SET mykey "Hello"

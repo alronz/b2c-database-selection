@@ -1,6 +1,6 @@
 #### [back](admin_main.md)
 
-As we already mentioned in the installation section, Redis can start without creating a configuration file and then it will take its built-in default configurations. For production environment you will need to choose your own configuration paramers depending on your settings. The Redis configuration is called redis.confi and will contain configuration with the below format:
+As we already mentioned in the installation section, Redis can start without a configuration file and then it will take its built-in default configurations. However, in a production environment you will need to choose your own configuration parameters depending on your settings. Redis stores its configurations inside a file called redis.config and will contain configuration with the below format:
 
 ````
 confugirationKeyWord argument1 argument2 ... argumentN
@@ -20,4 +20,4 @@ CONFIG SET SAVE "900 1 300 10"
 
 Above command will change the configuration related to persistence which will be explained later.
 
-I am going to explain in the following sections how to configure Redis for various administration and maintenance tasks such as configuring security , scalability and upgrade or backup. For a complete list of all the possible configurations that you can use in Redis, please check Redis [documentation](https://raw.githubusercontent.com/antirez/redis/3.0/redis.conf).
+I am going to explain in the following sections how to configure Redis for various administration and maintenance tasks such as configuring security , scalability, upgrade, and backup. For a complete list of all the possible configurations that you can use in Redis, please check Redis [documentation](https://raw.githubusercontent.com/antirez/redis/3.0/redis.conf).

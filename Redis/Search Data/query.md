@@ -35,7 +35,7 @@ redis> SADD myset "one"
 redis> SISMEMBER myset "one"
 (integer) 1
 ````
-In a sorted set data structure, you can query your data by key and score:
+In a sorted set data structure, you can query your data by both a key and a score:
 
 ````
 redis> ZADD myzset 1 "one"
@@ -56,7 +56,7 @@ redis> HGETALL myhash
 (all fields and values)
 ````
 
-Beside querying the data using the primary key, you can use secondary or compound keys as has been explained in the [previous section.](indexing.md)
+Beside querying the data using the primary key, you can use secondary or compound keys as has been already explained in the [previous section.](indexing.md)
 
 
 
@@ -68,7 +68,7 @@ Range queries is supported in Redis using sorted sets. For example if you have a
 this.jedisClient.zrangeByScore("Product.Price.Index", min, max); 
 ````
 
-In the above query, we are retrieving all product Ids within a min and max price range. Then you can get the product details in the hash using the product Ids as seen below:
+In the above query, we are retrieving all product Ids within a min and a max price range. Then you can get the product details in the hash using the product Ids as seen below:
 
 ````
 this.jedisClient.hgetAll("Products:" + productID);
