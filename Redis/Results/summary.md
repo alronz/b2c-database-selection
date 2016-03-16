@@ -78,7 +78,7 @@ Redis is a key-value store, the key acts as the primary index in all data struct
 
 ##### Grouping and Filtering
 
-In general, grouping and filtering data in Redis is done. To group your data in Redis, the set data structure is the best candidate since you will be able to easily insert elements from the same group type as members of the set. using sets and sorted sets. To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. 
+In general, grouping and filtering data in Redis is done. To group your data in Redis, the set data structure is the best candidate since you will be able to easily insert elements from the same group type as members of the set using sets and sorted sets. To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. 
 
 ##### Sorting
 
