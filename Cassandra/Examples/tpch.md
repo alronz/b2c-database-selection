@@ -470,7 +470,7 @@ The complete api function used to retrieve Q3 is shown below:
 
 
 ````
- @GET
+    @GET
     @Path("/q3")
     @Timed
     @ApiOperation(value = "get result of TPCH Q3 using this model", notes = "Returns String", response = String.class)
