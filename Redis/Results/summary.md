@@ -100,7 +100,7 @@ In Redis you can set a timeout on a key. It means that the key will be automatic
 
 ##### Configure Redis as a cache
 
-If you plan to use Redis as a cache system, then instead of expiring keys manually you can just let Redis take care of this automatically. Redis provides a way to easily configure your Redis server to act as a cache.  For instance you can use the below configurations to allow for a maximum of 2mb memory limit and make all keys expire automatically.
+If you plan to use Redis as a cache system, then instead of expiring keys manually you can just let Redis take care of this automatically. Redis provides a way to easily configure your Redis server to act automatically as a cache and use one of the popular eviction algorithms such as the LRU algorithm which makes it act like memcached database.
 
 
 ##### Configuration
@@ -110,7 +110,7 @@ Redis can start without a configuration file and then it will take its built-in 
 
 ##### Scalability
 
-Scaling reads in Redis is done using replications where slave instances can share the read load. Scaling writes is supported using sharding. The important question about sharding is who will shard the data. In Redis, the partitioning can be done in the client side where the clients directly select the right instance to be used to write or read a certain key. Most of the clients or drivers that are provided by Redis have implementations for partitioning. Another implementation for partitioning is by using a proxy which means that clients send request to a proxy that is able to interact with Redis and will forward the clients' requests to the right Redis instance then send back the reply to the clients. A famous proxy used by Redis and Memcached is [Twemproxy](https://github.com/twitter/twemproxy). Finally it is also possible to use an implementation for partitioning called query routing where you just send your requests to a random instance that will forward your request to the right Redis instance. Starting from Redis version 3.0, Redis cluster is the preferred way to get automatic partitioning and high availability. Redis cluster uses a hybrid implementation of query routing and some clients side implementation. I will explain in the following section how to use Redis cluster to do partitioning.
+Scaling reads in Redis is done using replications where slave instances can share the read load. Scaling writes is supported using sharding. The important question about sharding is who will shard the data. In Redis, the partitioning can be done in the client side where the clients directly select the right instance to be used to write or read a certain key. Most of the clients or drivers that are provided by Redis have implementations for partitioning. Another implementation for partitioning is by using a proxy which means that clients send request to a proxy that is able to interact with Redis and will forward the clients' requests to the right Redis instance then send back the reply to the clients. A famous proxy used by Redis and Memcached is [Twemproxy](https://github.com/twitter/twemproxy). Finally it is also possible to use an implementation for partitioning called query routing where you just send your requests to a random instance that will forward your request to the right Redis instance. Starting from Redis version 3.0, Redis cluster is the preferred way to get automatic partitioning and high availability. Redis cluster uses a hybrid implementation of query routing and some clients side implementation. 
 
 
 ##### Persistency
@@ -136,7 +136,7 @@ Backup in Redis is basically the snapshots that were taken of your dataset if th
 
 ##### Security
 
-Redis doesn't provide any access control and this should be provided by the a separate authorization layer.  However Redis provides an authentication mechanism that is optional and can be turned on from redis.conf. Redis supports the BIND command to allow only specific IP addresses to access the Redis server for better security. Redis doesn't also support any encryption mechanism and this should also be implemented using a separate layer like using encryption mechanisms such as SSL proxy. The "rename-command” used to rename the original commands which reduces the risk that might happen if unauthorised clients access your server. Finally,  NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping. NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping.
+Redis doesn't provide any access control and this should be provided by a separate authorization layer.  However Redis provides an authentication mechanism that is optional and can be turned on from redis.conf. Redis supports the BIND command to allow only specific IP addresses to access the Redis server for better security. Redis doesn't also support any encryption mechanism and this should also be implemented using a separate layer like using encryption mechanisms such as SSL proxy. The "rename-command” used to rename the original commands which reduces the risk that might happen if unauthorised clients access your server. Finally,  NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping. NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping.
 
 
 ##### Upgrading
