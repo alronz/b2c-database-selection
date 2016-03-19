@@ -2,7 +2,6 @@ In this section I will talk about the strengths and weaknesses of Neo4j and when
 
 
 
-
 ##### Strengths
 
 Like any graph database, Neo4j has the below advantages:

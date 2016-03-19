@@ -34,7 +34,7 @@ Cassandra can be configured to have either eventual consistency or a strong cons
 
 
 
-##### Weakness
+##### Weaknesses
 
 Below are the main weakness of Cassandra:
 
