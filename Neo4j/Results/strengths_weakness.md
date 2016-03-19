@@ -9,7 +9,7 @@ Like any graph database, Neo4j has the below advantages:
 ###### Performance
 
 
-Graph databases as well as Neo4j provides much better performance when it comes to querying deeply connected data that has many relationships expressed with complex joins. In relational databases , join-intensive query performance deteriorates when the dataset gets bigger. However when using graph databases, the performance stays relatively constant even with very large datasets.  This because in the graph data model, the query will check only the part of the graph that will be traversed by the query and not the whole graph.  
+Graph databases as well as Neo4j provides much better performance when it comes to querying deeply connected data that has many relationships expressed with complex joins. In relational databases, join-intensive query performance deteriorates when the dataset gets bigger. However when using graph databases, the performance stays relatively constant even with very large datasets.  This because in the graph data model, the query will check only the part of the graph that will be traversed by the query and not the whole graph.  
 
 
 ###### Flexibility
@@ -21,7 +21,7 @@ The graph data model is more natural. It has no impedance mismatch and is whiteb
 ###### Powerful Query Model
 
 
-The graph model is so intuitive and makes it very suitable for applications with bject oriented, semi-structured and network like data. The graph model is also very natural to express graph related problems such as the path finding problems.  Using this query model, you can write complex high performance traversals that can be beneficial in many use cases.  
+The graph query model is so intuitive and makes it very suitable for applications with object oriented, semi-structured and network like data. The graph model is also very natural to express graph related problems such as the path finding problems.  Using this query model, you can write complex high performance traversals that can be beneficial in many use cases.  
   
 
 In addition to the above advantages of the graph databases, Neo4j also provides the below advantages.
@@ -50,7 +50,7 @@ Neo4j supports HA master-slave clusters that can linearly scale reads where slav
 
 Neo4j has some upper bound limit for the graph size and can support single graphs having tens of billions of nodes, relationships and properties. The current Neo4j version supports up to around 34 billions of nodes and relationships and around 274 billions of properties. This is quite enough for large graphs of Facebook similar network graph size. These storage constraints doesn't pose any limitations in practice since only big businesses such as google can push these limits and these limits were set for storage optimisations and can be increased in future versions.
 
-###### Other
+###### No date data type support support
 
 Neo4j doesn't have internal support for date data type but this can be overcome using different methods such as storing the Epoch linux long values instead.  
 
