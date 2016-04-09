@@ -1,3 +1,10 @@
+[Home](../../index.md)
+
+[Cassandra Content](../Cassandra.md)
+___
+
+# Cassandra > Results > Summary
+
 Cassandra is a distributed database that can handle large amount of data and allows for high performance, scalability and availability because of its decentralised architecture. In the following sections, I will give a brief summary for most of the features that we look for in a database and how Cassandra supports them.
 
 
@@ -54,7 +61,7 @@ Query Language) which has a SQL-similar syntax by supporting clauses such as CRE
 
 ##### Transaction support
 
-Cassandra supports the ACID properties and trasnactions as explained below:
+Cassandra supports the ACID properties and transactions as explained below:
 
 Consistency: Cassandra supports a configurable consistency levels or what is called a tunable consistency beside supporting a linearisable consistency that can be used in transactions.
 
@@ -78,7 +85,7 @@ Data modelling in Cassandra is relatively different if you are coming from a rel
 
 ##### Relational data
 
-Since Cassandra doesn't support joins, relationships are modelled duplicating the data from the different related entities and group them into a separate CQL table that can be used to fulfil queries with the relationships. It is important to choose a correct primary key that contains proper partition key and any clustering columns if needed to be able to retrieve the related data efficiently later.
+Since Cassandra doesn't support joins, relationships are modelled by duplicating the data in separate CQL tables to answer relationship queries. It is important to choose a correct primary key to be able to retrieve the related data efficiently.
 
 ##### Normalisation/Denormalisation
 

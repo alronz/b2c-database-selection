@@ -1,3 +1,10 @@
+[Home](../../index.md)
+
+[Redis Content](../Redis.md)
+___
+
+# Redis > Results > Summary
+
 
 Redis is an extremely fast NoSQL key-value in-memory database which stores data in different useful data structures such as strings, list, sets and sorted sets. Redis supports many powerful features like built-in persistency, pub/sub, transaction support with optimistic locking and Lua Scripting. Redis is a very good choice if you are looking for a very fast and highly scalable and available data store solution.
 
@@ -78,7 +85,7 @@ Redis is a key-value store, the key acts as the primary index in all data struct
 
 ##### Grouping and Filtering
 
-In general, grouping and filtering data in Redis is done. To group your data in Redis, the set data structure is the best candidate since you will be able to easily insert elements from the same group type as members of the set using sets and sorted sets. To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. 
+In general, grouping and filtering data in Redis is done using the sets and soted sets data structures. To group your data in Redis, the set data structure is the best candidate since you will be able to easily insert elements from the same group type as members of the set using sets and sorted sets. To filter data in Redis, you can use the intersection, union, and difference functionalities provided by the set and sorted sets. 
 
 ##### Sorting
 
@@ -136,7 +143,7 @@ Backup in Redis is basically the snapshots that were taken of your dataset if th
 
 ##### Security
 
-Redis doesn't provide any access control and this should be provided by a separate authorization layer.  However Redis provides an authentication mechanism that is optional and can be turned on from redis.conf. Redis supports the BIND command to allow only specific IP addresses to access the Redis server for better security. Redis doesn't also support any encryption mechanism and this should also be implemented using a separate layer like using encryption mechanisms such as SSL proxy. The "rename-command” used to rename the original commands which reduces the risk that might happen if unauthorised clients access your server. Finally,  NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping. NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping.
+Redis doesn't provide any access control and this should be provided by a separate authorization layer.  However Redis provides an authentication mechanism that is optional and can be turned on from redis.conf. Redis supports the BIND command to allow only specific IP addresses to access the Redis server for better security. Redis doesn't also support any encryption mechanism and this should also be implemented using a separate layer like using encryption mechanisms such as SSL proxy. The "rename-command” used to rename the original commands which reduces the risk that might happen if unauthorised clients access your server. Finally,  NoSQL injection attacks are impossible since Redis protocol has no concept of string escaping. 
 
 
 ##### Upgrading

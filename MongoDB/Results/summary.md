@@ -1,3 +1,10 @@
+[Home](../../index.md)
+
+[MongoDB Content](../MongoDB.md)
+___
+
+# MongoDB > Results > Summary
+
 
 MongoDB is an open source database that uses the document model which stores the data as documents and collections to provide more flexibility in terms of data modeling. MongoDB provides high performance, availability and scalability by using features such as sharding, replication, embedded documents, indexing, aggregation pipeline and automatic failover.
 
@@ -112,12 +119,12 @@ Used to store and manage large files that are beyond the normal 16MB document si
 
 ##### Configuration
 
-MongoDB uses a YAMLconfiguration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. If you want to change a configuration option in the configuration file of a mongod or mongos instances, you will need to restart the instance to pick up the new changes.
+MongoDB uses a YAML configuration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. If you want to change a configuration option in the configuration file of a mongod or mongos instances, you will need to restart the instance to pick up the new changes.
 
 ##### Scalability
 
 
-MongoDB supports sharding by using a sharded cluster which is composed of three components: the query routers, the configuration servers and the shards.  The query routers ate mongos instances which are used by the client applications to interact with the sharded data. Client applications can't access the shards directly and can only submit read and write requests to mongos instance. Mongos instance is the one responsible for routing these reads and writes requests to the respective shards.  The config servers holds the metadata of the sharded cluster such as the shards locations of each sharded data. Config servers contain very important information for the sharded cluster to work and if the servers are down for any reason, the sharded cluster becomes inoperable. For this reason, it is a good idea to replicate the data in the config server using a replica set configuration which allows the sharded cluster to have more than 3 config servers and up to 50 servers to ensure availability. The shards are a replica set or a single server to hold part of the sharded data. Usually, each shard is a replica set which provides high availability and data redundancy that can be used in case of disaster recovery.  MongoDB partition and distribute the data evenly based on the sharded key. To partition the data using the sharded key, MongoDB either use range based partitioning or hash based partitioning. In the range based sharding, MongoDB divides the data into ranges based on the sharded key values which provides efficient range queries but uneven distribution of the data. In the other hand, the hash based partitioning divides the data based on the value of a hash function which provides random even distribution of the data but not efficient range queries.
+MongoDB supports sharding by using a sharded cluster which is composed of three components: the query routers, the configuration servers and the shards.  The query routers are mongos instances which are used by the client applications to interact with the sharded data. Client applications can't access the shards directly and can only submit read and write requests to mongos instance. Mongos instance is the one responsible for routing these reads and writes requests to the respective shards.  The config servers holds the metadata of the sharded cluster such as the shards locations of each sharded data. Config servers contain very important information for the sharded cluster to work properly and if the servers are down for any reason, the sharded cluster becomes inoperable. For this reason, it is a good idea to replicate the data in the config server using a replica set configuration which allows the sharded cluster to have more than 3 config servers and up to 50 servers to ensure availability. The shards are a replica set or a single server to hold part of the sharded data. Usually, each shard is a replica set which provides high availability and data redundancy that can be used in case of disaster recovery.  MongoDB partition and distribute the data evenly based on the sharded key. To partition the data using the sharded key, MongoDB either use range based partitioning or hash based partitioning. In the range based sharding, MongoDB divides the data into ranges based on the sharded key values which provides efficient range queries but uneven distribution of the data. In the other hand, the hash based partitioning divides the data based on the value of a hash function which provides random even distribution of the data but not efficient range queries.
 
 ##### Persistency
 

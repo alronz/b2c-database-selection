@@ -1,9 +1,18 @@
+
+[Home](../../index.md)
+
+[Neo4j Content](../Neo4j.md)
+___
+
+# Neo4j > Results > Summary
+
+
 Neo4j is an open-source graph based database that was built completely based on the graph property model. Neo4j is compliance with the database ACID properties and supports non-functional requirements such as scalability, availability and fault-tolerance. In the following sections, I will give a brief summary for most of the features that we look for in a database and how Neo4j supports them.
 
 
 ##### Use cases
 
-Neo4j is based on the graph property model and can handle complex queries very efficiently. Therefore, it is used in many use cases such as software analytics, scientific research, path finding problems, recommendation system, social networks, network management, business intelligence or warehouses and many more. 
+Neo4j is based on the property graph model and can handle complex queries very efficiently. Therefore, it is used in many use cases such as software analytics, scientific research, path finding problems, recommendation system, social networks, network management, business intelligence or warehouses and many more. 
 
 ##### Basic Concepts
 
@@ -15,9 +24,9 @@ Relationships: Represents the relationships between two nodes.
 
 Properties: Nodes and relationships can use one or more properties to store some information related to the node or the relationship.
 
-Labels: A marked used to group a set of similar nodes.
+Labels: are markers used to group a set of similar nodes.
 
-Relationship Types:  A marked used to group a set of similar relationships.
+Relationship Types:  are markers used to group a set of similar relationships.
 
 Traversal: How the database search the graph to find results of the queries
 
