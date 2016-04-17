@@ -1,9 +1,6 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+### [Neo4j](../Neo4j.md) > [Data Model](Data Model.md) > Referential Integrity
 ___
-
-# Neo4j > Data Model > Referential Integrity
 
 
 Referential integrity isn't enforced in the same way as in relational databases where if one row is deleted, all its related data is also removed. In Neo4j, if we delete a node, all its relationships will be also removed since we can't have a relationship without a start and end node attached to it. However the connected node at the end of the relationship won't be deleted. In other words, data integrity in Neo4j means that there shouldn't be any relationship without start or end node and there shouldn't be any properties that aren't attached to a node or a relationship. 

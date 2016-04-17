@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Results](Results.md) > Strengths and Weaknesses
 ___
-
-# Redis > Results > Strengths and Weaknesses
-
 
 In this section, I will talk about the strengths and weaknesses of Redis and when using it makes sense.
 

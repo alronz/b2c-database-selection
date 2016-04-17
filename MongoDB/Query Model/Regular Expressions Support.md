@@ -1,9 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Query Model](Query Model.md) > Regular Expressions Support
 ___
-
-# MongoDB > Query Model > Regular Expressions Support
 
 
 MongoDB supports regular expressions for pattern matching strings in query operations. MongoDB supports a huge number of regular expressions. You can use the $regex keyword to specifiy regular expression matching patterns as shown below:

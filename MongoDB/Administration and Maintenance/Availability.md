@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Availability
 ___
 
-# MongoDB > Administration and Maintenance > Availability
 
 Availability measures the percentage of time an application is working for the client applications. It is quite common, that with time the database infrastructures suffer some hardware failures that might impact the availability of the database. MongoDB protects itself from such unavailability by supporting features to enable data redundancy through replication.  In the following section, I will talk about how replication is supported in MongoDB and how is the failover process is usually handled.
 

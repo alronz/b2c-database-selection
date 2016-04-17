@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Basics](Basics.md) > Data Import and Export
 ___
-
-# MongoDB > Basics > Data Import and Export
-
 
 As explained in the [Query Language section](Query Language.md), MongoDB provides methods to update,remove,replace or insert multiple documents at the same time such as db.collection.insertMany(), db.collection.updateMany(), and db.collection.deleteMany(). In addition, MongoDB supports another method that can be used to execute a batch of write operations such as insert, update and delete at the same time. In the following section, I will explain how to do a bulk write in MongoDB.
 

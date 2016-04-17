@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Query Model](Query Model.md) > Query Options
 ___
-
-# Cassandra > Query Model > Query Options
 
 
 CQL supports a SELECT statement similar to SQL with many options that can be used to run simple or complex queries in Cassandra. In this section, I will explain how you can query your data in Cassandra using CQL SELECT statement.

@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Query Model](Query Model.md) > Indexing
 ___
-
-# MongoDB > Query Model > Indexing
-
 
 Indexing is a very important concept in any database to support efficient execution of queries. For instance, MongoDB must perform a full collection scan if we don't create index in one of the fields that we want to query. Indexes acts like the table of contents used to find a certain topic in a very large book. MongoDB indexes are created using the efficient B-tree data structure to store small portion of information used to speed up queries by limiting the number of documents to be searched. These information will be stored using the B tree structure in order useful to perform range queries or sorting. 
 

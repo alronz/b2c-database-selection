@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Scalability
 ___
 
-# MongoDB > Administration and Maintenance > Scalability
 
 As your data grows, your sever won't be able to handle the high rate of queries and the larger sets will exceed the server storage capacity. To address these issues, you will have to do either a vertical or horizontal scaling. You can scale your server vertically by adding more CPUs and storage resources but there is always a limit to what you can add to a single server machine. In the other hand, you can scale horizontally by distributing your data over multiple servers which is also called Sharding. Each shard will act as a separate database and all the shards make up the complete logical database. By using sharding, you can meet the demands of the high throughput read/write operations as well as the very large data sets.
 

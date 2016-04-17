@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Configuration
 ___
-
-# Cassandra > Administration and Maintenance > Configuration
 
 
 Cassandra uses a yaml configuration file called cassandra.yaml to store all configuration related parameters. The configuration file can be found under the install_location/conf folder. Cassandra doesn't support changing the configurations on the fly and you will need to restart the node for the new configurations to take effect. 

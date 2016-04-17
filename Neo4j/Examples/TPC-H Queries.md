@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Examples](Examples.md) > TPC-H Queries
 ___
 
-# Neo4j > Examples > TPC-H Queries
 
 In this example, I will show how we can model the data of a complete B2C application and how to write complex queries on this data model. I am going to use the data model used by the [TPC-H benchmark](http://www.tpc.org/tpch) which is shown below.
 
@@ -23,7 +23,7 @@ The complete code of this example can be found in Github along with the steps on
 ##### Creating the data model 
 
 
-Data model design techniques are explained previously in the [data layout section](../Data Modeling/data_layout.md). Based on these techniques, we have modelled the TPCH data model as shown below:
+Data model design techniques are explained previously in the [data layout section](../Data Model/Data Layout.md). Based on these techniques, we have modelled the TPCH data model as shown below:
 
 
 ![image](https://s3.amazonaws.com/b2cbucket/tpcHNeo4j.png)

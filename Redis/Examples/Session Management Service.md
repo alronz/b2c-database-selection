@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Session Management Service
 ___
-
-# Redis > Examples > Session Management Service
 
 
 As we have already mentioned in the cart management example, using cookies is a good idea for temporary data such as login information and carts. However, the cookies will be sent back and forth between the server and the client with each request. This is usually fine since cookies are most of the time very small but when cookies getting larger, it might slow down the requests. Since Redis is a very fast in-memory database, we can use it to store login cookies or to handle login sessions. In this example I will be showing how to use Redis to do just that.

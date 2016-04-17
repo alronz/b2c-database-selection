@@ -1,11 +1,11 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+
+### [Redis ](../Redis.md) > [Basics](Basics.md) > Underline Structure
 ___
 
-# Redis > Basics > Underline Structure
 
-### Underline data structures:
 
 Although Redis is a key-value datastore, it supports more than just the plain mapping of string keys to the string values. Instead it maps a key to different useful data structures that can be used to develop complex use cases. The key itself is binary safe which means it can be either a normal string or even a binary content of a file. However it is a good practice not to use long keys since it will impact performance and increase memory usage. In addition, keys should be consistent and can be used to define namespaces for your applications e.g school:teacher:john. In this section, I am going to give a quick overview of the supported data types that can be used in Redis to store your data.
 

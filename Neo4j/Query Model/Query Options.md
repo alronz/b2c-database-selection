@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Query Model](Query Model.md) > Query Options
 ___
-
-# Neo4j > Query Model > Query Options
-
 
 
 Neo4j supports most query types by using the MATCH and WHERE clauses together. To supports parameterised or range queries by using the WHERE clause as shown below:
@@ -27,5 +24,5 @@ RETURN p
 ````
 
 
-For more details about the WHERE and MATCH clause, please read the previous section about [Cypher query language](../Basic Features/commands.md).
+For more details about the WHERE and MATCH clause, please read the previous section about [Cypher query language](../Basics/Query Language.md).
 

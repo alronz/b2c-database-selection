@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Configuration
 ___
-
-# MongoDB > Administration and Maintenance > Configuration
-
 
 
 MongoDB uses a configuration file for each mongod or mongos instance that contains all the settings and command options that will be used by this instance. The file has a [YAML format](http://www.yaml.org/start.html). As an example, below are some basic configurations:

@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Upgrading
 ___
 
-# MongoDB > Administration and Maintenance > Upgrading
 
 In this section I will show how to upgrade MongoDB version 3.0 to the latest version 3.2.  To upgrade a MongoDB instance, you should start by shutting it down using mongod --shutdown option. After that you can either manually upgrading by downloading the new 3.2 binaries and then just replace them with the old 3.0 binaries or you can use the package managers such as apt, dnf, yum, or brew. For instruction on how to install MongoDB 3.2, please have  a look to the [installation section](../Basics/Installation.md). 
 

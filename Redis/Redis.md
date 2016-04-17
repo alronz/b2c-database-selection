@@ -1,4 +1,7 @@
 ### Redis
+---
+
+Redis
 
    - Basics
      - [Overview](Basics/Overview.md)
@@ -31,7 +34,7 @@
      - [Availability](Administration and Maintenance/Availability.md)
    - Special Features
      - [Scripting Support](Special Features/Scripting Support.md) 
-     - [Pub/Sub Support](Special Features/Pub/Sub Support.md)
+     - [Pub/Sub Support](Special Features/Pub and Sub Support.md)
      - [Expire Option](Special Features/Expire Option.md)
      - [Redis as a Cache](Special Features/Redis as a Cache.md)
    - Examples

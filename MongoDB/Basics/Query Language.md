@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Basics](Basics.md) > Query Language
 ___
-
-# MongoDB > Basics > Query Language
-
 
 
 MongoDB provides normal CRUD operations to interact easily with your stored data. These operations can run only at the collection level. In the following sections I will talk briefly about how to query and modify the stored data.
@@ -23,7 +19,7 @@ db.products.find(
 
 As seen in the example above, we want to find all products with size 20 but we want to return only the first 10 documents and only the product name and price. By default MongoDB returns the _id field and can be excluded in the projection as seen above. 
 
-MongoDB provides many options to query your data and will be covered in more details when talking about [how to search your data](../Search Data/query.md).
+MongoDB provides many options to query your data and will be covered in more details when talking about [how to search your data](../Query Model/Query Options.md).
 
 #### Create Data
 

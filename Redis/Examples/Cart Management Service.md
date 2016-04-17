@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Cart Management Service
 ___
-
-# Redis > Examples > Cart Management Service
 
 
 In this example, I will show how to use Redis to store the shopping cart of a B2C application. Usually the shopping cart data is stored in the client side as a cookie. The advantage of doing this is that you wouldn't need to store such a temporary data in your database. However this will require you to send the cookies with every web request which can slow down the request in case of large cookies. Storing shopping cart data in Redis is a good idea since you can retrieve them very faster at any time and persist this data is possible if needed.

@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Job Queue System
 ___
-
-# Redis > Examples > Job Queue System
-
 
 In the example, I will show how to build a queue system functionalities using Redis. Redis supports the list data structure which is very suitable to build queue system. For this a service has been built to support the below APIs:
 

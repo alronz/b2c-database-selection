@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
 [MongoDB Content](../MongoDB.md)
+
+### [MongoDB](../MongoDB.md) > [Results](Results.md) > Summary
 ___
-
-# MongoDB > Results > Summary
-
 
 MongoDB is an open source database that uses the document model which stores the data as documents and collections to provide more flexibility in terms of data modeling. MongoDB provides high performance, availability and scalability by using features such as sharding, replication, embedded documents, indexing, aggregation pipeline and automatic failover.
 

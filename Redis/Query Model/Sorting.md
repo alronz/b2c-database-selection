@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Query Model](Query Model.md) > Sorting
 ___
-
-# Redis > Query Model > Sorting
-
 
 Redis supports a sort command that can be used to sort most of Redis data structures such as lists, sets and sorted sets. This sort command can sort your data ascendingly, descendingly or alphabetically. You can also sort by a specific pattern or limit the returned data. Another useful feature of the sort command, is that you can also sort by external keys. In the below section, I will show how you can use the Sort command.
 

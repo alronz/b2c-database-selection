@@ -1,10 +1,9 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Basics](Basics.md) > Query Language
+
 ___
-
-# Cassandra > Basics > Query Language
-
 
 
 Cassandra supports a SQL-simlar query language called CQL (Cassandra Query Language) that can be used to interact with the stored data. CQL can be accessed using a shell script called cqlsh which is found inside the installation folder in the below path :
@@ -44,9 +43,9 @@ Now since the id column is part of the primary key, then you can run queries aga
 SELECT * FROM ecommerce.product WHERE id =2
 ````
 
-You can also run queries against columns that aren't part of the primary key of the table if you create a secondary index on them. More about primary key and indexes will be explained in the [data layout](../Data Modeling/data_layout.md) section and the [indexes section](../Search Data/index.md). 
+You can also run queries against columns that aren't part of the primary key of the table if you create a secondary index on them. More about primary key and indexes will be explained in the [data layout](../Data Model/Data Layout.md) section and the [indexes section](../Query Model/Indexing.md). 
 
-Querying the data will be explained in more details in the [searching section](../Search Data/query.md).
+Querying the data will be explained in more details in the [searching section](../Query Model/Query Options.md).
 
 
 ##### Writing data

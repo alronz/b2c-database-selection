@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+### [Redis ](../Redis.md) > [Query Model](Query Model.md) > Indexing
 ___
-
-# Redis > Query Model > Indexing
-
 
 Since Redis is a key-value store, the key acts as the primary index in all data structures. Redis doesn't support internally other type of indexes such secondary and compound indexes. However, secondary and compound indexes can be implemented and maintained manually by the clients using sets and sorted sets.  In the below section I will show how to use primary, secondary and compound indexes in Redis.
 

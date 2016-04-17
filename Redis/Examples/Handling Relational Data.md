@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Handling Relational Data
 ___
-
-# Redis > Examples > Handling Relational Data
 
 
 In this example, I will show to model data relationships using Redis assuming the below model:
@@ -11,7 +9,7 @@ In this example, I will show to model data relationships using Redis assuming th
 
 ![image](https://s3.amazonaws.com/b2cbucket/relational_data_redis_model.png)
 
-As you can be seen above, we have four data entities (customer, order, payment and shipping). Each customer can have more than one order and each order can have one payment method and multiple shipping addresses. To model these relationships, we use sets as explained already in the [relational data section](../data modeling/relational_data.md). 
+As you can be seen above, we have four data entities (customer, order, payment and shipping). Each customer can have more than one order and each order can have one payment method and multiple shipping addresses. To model these relationships, we use sets as explained already in the [relational data section](../Data Model/Relational Data Support.md). 
 
 Now in this service, it will answer the below APIs :
 

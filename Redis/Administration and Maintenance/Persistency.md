@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Administration and Maintenance](Administration and Maintenance.md) > Persistency
+
 ___
-
-# Redis > Administration and Maintenance > Persistency
 
 
 Redis supports two ways to persist data on disk. The first option is called snapshotting or RDB which takes a snapshot of the current data periodically (based on pre-configured value) and store it on disk. The second option is called append-only file or AOF which simply works by logging the operations that modifies the data (write operations) into a log file. Processing this log file later if needed will produce the same dataset that was in memory. More details about these two options and how to configure them will be explained in the following sections.

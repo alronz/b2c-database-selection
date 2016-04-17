@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Basics](Basics.md) > Data Import and Export
 ___
-
-# Cassandra > Basics > Data Import and Export
-
 
 To import or export data from or into Cassandra, CQL provides a simple statement called "COPY" that can be used to either import or export data. The COPY statement can either export data from a table into a CSV file or import data from a CSV file and into a table. The "COPY" command can be used with the below syntax:
 

@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Basics](Basics) > Query Language
 ___
-
-# Neo4j > Basics > Query Language
-
 
 Neo4j uses a declarative query language called Cypher to interact with the stored data. Cypher is a powerful simple language which is designed to be efficient and human readable. It is inspired by SQL where it uses similar clauses such as WHERE and ORDER BY and its pattern matching expressions are inspired by SPARQL. In the following sections, I will talk in more details about Cypher main concepts such as the Cypher general clauses and how to read/write data using Cypher.
 
@@ -136,7 +133,7 @@ where o.status = 'Paid'RETURN c.name, count(o.orderID) AS orderCount
 ORDER BY orderCount
 ````
 
-The WHERE clause can be used either to find nodes with a particular label, relationships with certain relationship type, or to search for nodes with specific property value. The WHERE clause supports the use of boolean operators such as OR,AND and XOR.  Similarly it can be used with string matching patterns operators such as START WITH, ENDS WITH and CONTAINS. Regular expressions is also supported as will be explained in [later section](../Search Data/regx.md).
+The WHERE clause can be used either to find nodes with a particular label, relationships with certain relationship type, or to search for nodes with specific property value. The WHERE clause supports the use of boolean operators such as OR,AND and XOR.  Similarly it can be used with string matching patterns operators such as START WITH, ENDS WITH and CONTAINS. Regular expressions is also supported as will be explained in [later section](../Query Model/Regular Expressions Support.md).
 
 ##### Writing Data
 

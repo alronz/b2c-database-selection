@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Query Model](Query Model.md) > Regular Expressions Support
+
 ___
-
-# Cassandra > Query Model > Regular Expressions Support
 
 
 

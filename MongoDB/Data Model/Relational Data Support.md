@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Data Model](Data Model.md) > Relational Data Support
 ___
-
-# MongoDB > Data Model > Relational Data Support
-
 
 In this section, I will show how you can use MongoDB to model common relations between you data such as one-to-one, one-to-many, and many-to-many relations. For each relation, we can use either the normalised model or the denormalised model. I have explained in the [previous section](Data Layout.md) the difference between the two models and the benefits and shortcomings for each.
 

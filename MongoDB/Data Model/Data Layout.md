@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Data Model](Data Model.md) > Data Layout
 ___
-
-# MongoDB > Data Model > Data Layout
-
 
 Unlike relational databases where you should define a table schema before inserting any data, MongoDB is schema-less and its collections don't enforce documents structure. Hence data modelling is more flexible. 
 

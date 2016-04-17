@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Security
+
 ___
-
-# Cassandra > Administration and Maintenance > Security
 
 
 In the community version of Cassandra, you can provide security for your data by the following features:

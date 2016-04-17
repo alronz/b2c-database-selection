@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Security
 ___
-
-# MongoDB > Administration and Maintenance > Security
-
 
 In this section I will talk about what are the security measures that MongoDB provides in order to ensure that the data is securely stored. MongoDB offers many security features such as Authentication, Role-Based access control, and communication encryption. In the following sections, I will talk about these features:
 

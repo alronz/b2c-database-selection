@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Results](Results.md) > Strengths and Weaknesses
 ___
-
-# Neo4j > Results > Strengths and Weaknesses
-
 
 In this section I will talk about the strengths and weaknesses of Neo4j and when using it makes sense.
 

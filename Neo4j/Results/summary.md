@@ -1,11 +1,8 @@
 
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Results](Results.md) > Summary
 ___
-
-# Neo4j > Results > Summary
-
 
 Neo4j is an open-source graph based database that was built completely based on the graph property model. Neo4j is compliance with the database ACID properties and supports non-functional requirements such as scalability, availability and fault-tolerance. In the following sections, I will give a brief summary for most of the features that we look for in a database and how Neo4j supports them.
 

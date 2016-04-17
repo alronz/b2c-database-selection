@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Administration and Maintenance](Administration and Maintenance.md) > Security
 ___
-
-# Neo4j > Administration and Maintenance > Security
-
 
 Neo4j supports different security options on the data level as well as on the server level. In this section, I will talk about the security options available in Neo4j.
 

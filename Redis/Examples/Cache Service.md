@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Cache Service
 ___
-
-# Redis > Examples > Cache Service
-
 
 For many websites nowadays, large part of the pages are rarely changing. To improve the performance, a caching mechanism needs to be used when generating web pages in the server side. As a very fast in-memory database, Redis can be easily used to act like a cache service. There are many production-ready cache implementations available which were build using Redis. Redis can be configured as a cache and to support directly out-of-box popular cache eviction algorithms such as LRU and others. However in this example we are showing how to build the basic functionalities of a cache service using Redis. This service will support the below rest API:
 

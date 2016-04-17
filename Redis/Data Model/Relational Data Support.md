@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+### [Redis ](../Redis.md) > [Data Model](Data Model.md) > Relational Data Support
 ___
-
-# Redis > Data Model > Relational Data Support
-
 
 NoSQL databases are not always the best choice when it comes to relational data. When you think of using key-value database, you are usually looking for limited use cases such as for caching, session management or to maintain a queue. The same applies for Redis, however it can still be used to store application domain data because it has a built-in persistency. Using Redis for complex relational data isn't usually recommended, however Redis supports modelling data relationships as will be explained in this section. 
 

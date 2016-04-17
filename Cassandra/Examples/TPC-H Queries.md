@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Examples](Examples.md) > TPC-H Queries
 ___
-
-# Cassandra > Examples > TPC-H Queries
-
 
 In this example, I will show how we can model the data of a complete B2C application and how to write complex queries on this data model. I am going to use the data model used by the [TPC-H benchmark](http://www.tpc.org/tpch) which is shown below.
 
@@ -29,7 +27,7 @@ This query is used to report the amount of billed, shipped and returned items. T
 select   l_returnflag,   l_linestatus,   sum(l_quantity) as sum_qty,   sum(l_extendedprice) as sum_base_price,   sum(l_extendedprice*(1-l_discount)) as sum_disc_price,   sum(l_extendedprice*(1-l_discount)*(1+l_tax)) as sum_charge,   avg(l_quantity) as avg_qty,   avg(l_extendedprice) as avg_price,   avg(l_discount) as avg_disc,   count(*) as count_orderfrom   lineitemwhere   l_shipdate <= date '1998-12-01' - interval '[DELTA]' day (3)group by   l_returnflag,   l_linestatusorder by   l_returnflag,   l_linestatus;
 ````
 
-As explained previously in the [data layout section](../Data Modeling/data_layout.md), writes are cheap in Cassandra and it is absolutely ok to duplicate your data. We also model our data around the query patterns that we are planning to have in our application and not around the entities or relationships of the data model. This means that if we are going to frequently run the above query in our application, then it make sense to create a separate table for it to get better performance and to allow the data to scale efficiently. 
+As explained previously in the [data layout section](../Data Model/Data Layout.md), writes are cheap in Cassandra and it is absolutely ok to duplicate your data. We also model our data around the query patterns that we are planning to have in our application and not around the entities or relationships of the data model. This means that if we are going to frequently run the above query in our application, then it make sense to create a separate table for it to get better performance and to allow the data to scale efficiently. 
 
 Ofcourse first we will create the Keyspace that will hold the tables as seen below:
 
@@ -111,7 +109,7 @@ After loading the data, now if we run a "select * from CASSANDRA_EXAMPLE_KEYSPAC
 
 
 
-As mentioned in a [previous sections](../Search Data/queryOptions.md), Cassandra supports some built in aggregate functions such as sum, avg, min, max and count. However if you want to perform some mathematical operations within the SELECT statement, you will have to create a separate user defined function for that. As seen in the SQL query, we need to perform the below mathematical operations in the SELECT statement:
+As mentioned in a [previous sections](../Query Model/Query Options.md), Cassandra supports some built in aggregate functions such as sum, avg, min, max and count. However if you want to perform some mathematical operations within the SELECT statement, you will have to create a separate user defined function for that. As seen in the SQL query, we need to perform the below mathematical operations in the SELECT statement:
 
 ````
 sum(l_extendedprice*(1-l_discount)) as sum_disc_price
@@ -262,7 +260,7 @@ This query is used to get the 10 unshipped orders with the highest value. In ord
 select l_orderkey, sum(l_extendedprice*(1-l_discount)) as revenue, o_orderdate, o_shippriorityfrom customer, orders, lineitemwhere c_mktsegment = '[SEGMENT]' and c_custkey = o_custkey and l_orderkey = o_orderkey and o_orderdate < date '[DATE]' and l_shipdate > date '[DATE]'group by l_orderkey, o_orderdate, o_shippriorityorder by revenue desc, o_orderdate;
 ````
 
-Since joins aren't supported in Cassandra, we create a CQL table that has all the needed values from the different tables since duplicating your data is ok in Cassandra as mentioned in the [data layout section](../Data Modeling/data_layout.md). We create the table as shown below:
+Since joins aren't supported in Cassandra, we create a CQL table that has all the needed values from the different tables since duplicating your data is ok in Cassandra as mentioned in the [data layout section](../Data Model/Data Layout.md). We create the table as shown below:
 
 ````
  CREATE TABLE IF NOT EXISTS CASSANDRA_EXAMPLE_KEYSPACE.TPCH_Q3

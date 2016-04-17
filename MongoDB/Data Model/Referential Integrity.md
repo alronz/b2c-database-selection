@@ -1,8 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Data Model](Data Model.md) > Referential Integrity
 ___
 
-# MongoDB > Data Model > Referential Integrity
 
 There is no referential integrity enforced by MongoDB.

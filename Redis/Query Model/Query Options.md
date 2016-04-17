@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Query Model](Query Model.md) > Query Options
 ___
-
-# Redis > Query Model > Query Options
-
 
 
 Redis is a key-value database which means you can query your data easily using the keys. In this section I will show how range and parameterised queries are supported.

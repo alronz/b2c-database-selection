@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Basics](Basics.md) > Underline Structure
 ___
-
-# Cassandra > Basics > Underline Structure
-
 
 Cassandra bases its data distribution design on Amazon's Dynamo and its data model on Google's Bigtable. In this section I will explain Cassandra's main concepts related to its data model and data distribution designs.
 

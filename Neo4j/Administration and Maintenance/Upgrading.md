@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Administration and Maintenance](Administration and Maintenance.md) > Upgrading
 ___
 
-# Neo4j > Administration and Maintenance > Upgrading
 
 Neo4j supports automatic upgrade for upgrades between patch releases and within the same minor version. However, upgrading a major release is manual. In this section, I will show how to do manual and automatic upgrade.
 

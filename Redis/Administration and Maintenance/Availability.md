@@ -1,10 +1,9 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Administration and Maintenance](Administration and Maintenance.md) > Availability
+
 ___
-
-# Redis > Administration and Maintenance > Availability
-
 
 
 Redis provides a distributed system called Redis Sentinel to guarantee high availability. Redis Sentinel can resist certain types of failures automatically without any human intervention. Redis Sentinel can be used also for other tasks such as monitoring, as a configuration provider for clients and as a notification system. By Monitoring we mean that Redis Sentinel will monitor your master and slave instances and check if they are working as expected. It will also send notifications to the admin in case anything went wrong. Clients can also contact the Redis Sentinel to get any configurations parameters for a certain Redis instance such as address and port. Finally Redis Sentinel will start a failover process in case the master is not working to promote one of the slaves to replace it and reconfigure the other slaves to contact this new master.

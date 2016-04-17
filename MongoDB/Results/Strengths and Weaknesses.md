@@ -1,11 +1,8 @@
 
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB](../MongoDB.md) > [Results](Results.md) > Strengths and Weaknesses
 ___
-
-# MongoDB > Results > Strengths and Weaknesses
-
 
 In this section, I will talk about the strengths and weaknesses of MongoDB and when using it makes sense.
 

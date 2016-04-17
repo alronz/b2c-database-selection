@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Administration and Maintenance](Administration and Maintenance.md) > Persistency
 ___
-
-# MongoDB > Administration and Maintenance > Persistency
 
 MongoDB supports two persistent storage engines: the WiredTiger storage engine or the MMAPv1 storage engine. Another non-persistent storage engine is also supported which is called the In-Memory storage engine where all data will be lost if the mongod instance is shut down for any reason. The in-memory storage engine is still in beta and is mainly used to get more predictable latency of database operations. Usually, persistency is supported by flushing the data from the memory to disk periodically (default is each 60 seconds). In addition, a mechanism called journalling is also used to provide more durable solution in the event of failure. MonogoDB uses journal files to store the in-memory changes and can be used later to recover the data when the server crashes before flushing data to disk files. In the following sections, I will talk about how persistency is supported in the WiredTiger and MMAPv1 storage engines.
 

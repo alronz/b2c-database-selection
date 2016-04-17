@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Examples](Examples.md) > Mixed Model
 ___
-
-# MongoDB > Examples > Mixed Model
 
 
 In this model, we will try to denormalise some of the objects and normalise the rest. We have embedded the lineitem documents into the order document, however the supplier, customer, and partsupp are separate documents. The nation document is embedded into the supplier and the customer documents and the nation itself embed the region document. The partsupp document embed the part document, but reference the supplier document as shown below:

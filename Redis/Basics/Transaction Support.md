@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Basics](Basics.md) > Transaction Support
 ___
-
-# Redis > Basics > Transaction Support
-
 
 Redis provides a partial transactions support and can even provide almost full transactions when used with its built-in persistencey feature as will be explained [later](../Administration and Maintenance/Persistency.md).  
 

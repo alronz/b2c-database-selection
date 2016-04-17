@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Administration and Maintenance](Administration and Maintenance.md) > Availability
 ___
-
-# Neo4j > Administration and Maintenance > Availability
 
 
 

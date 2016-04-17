@@ -1,10 +1,9 @@
-[Home](../../index.md)
 
 [Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Analytics Service
 ___
-
-# Redis > Examples > Analytics Service
-
 
 Redis is suitable to get real-time analytics since it can answer queries very fast. In a B2C application, it is possible to use Redis to answer queries such as what are the most viewed products, how many users currently logged in, what are the last viewed products, and what are the most  added to cart or deleted from cart products. Of course, we can answer such queries using any other database. However, Redis is much faster since it is in-memory database and can delete the data used for the queries automatically after sometime when it is not needed. For example, if you want to store the most viewed 100 products, you can use the sorted set to store only the 100 most viewed products as will be shown in this section. So Redis is more efficient in terms of performance and storage when it comes to analytics assuming you want to answer simple direct questions.
 

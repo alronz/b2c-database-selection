@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Results](Results.md) > Strengths and Weaknesses
 ___
 
-# Cassandra > Results > Strengths and Weaknesses
 
 In this section, I will talk about the strengths and weaknesses of Cassandra and when using Cassandra makes sense.
 

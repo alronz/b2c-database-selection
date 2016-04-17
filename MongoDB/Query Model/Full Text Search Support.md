@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+
+### [MongoDB ](../MongoDB.md) > [Query Model](Query Model.md) > Full Text Search Support
 ___
-
-# MongoDB > Query Model > Full Text Search Support
-
 
 MongoDB supports Full-Text Search using Text Indexes. Text Indexes can be defined on any string or array of strings values in your documents that you want them to be fully searched. By defining a text index on any field, MongoDB will tokenises and stems the field's text content and creates the index accordingly. 
 

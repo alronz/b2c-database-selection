@@ -1,10 +1,6 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Query Model](Query Model.md) > Sorting
 ___
-
-# MongoDB > Query Model > Sorting
-
 
 MongoDB provide very useful method to sort the returned results of a query operation. The method sort() can be used by defining the fields to be used for sorting. An example is shown below:
 

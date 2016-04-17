@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Results](Results.md) > Summary
 ___
-
-# Redis > Results > Summary
-
 
 Redis is an extremely fast NoSQL key-value in-memory database which stores data in different useful data structures such as strings, list, sets and sorted sets. Redis supports many powerful features like built-in persistency, pub/sub, transaction support with optimistic locking and Lua Scripting. Redis is a very good choice if you are looking for a very fast and highly scalable and available data store solution.
 

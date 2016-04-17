@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Administration and Maintenance](Administration and Maintenance.md) > Configuration
+
 ___
-
-# Redis > Administration and Maintenance > Configuration
 
 
 As we already mentioned in the installation section, Redis can start without a configuration file and then it will take its built-in default configurations. However, in a production environment you will need to choose your own configuration parameters depending on your settings. Redis stores its configurations inside a file called redis.config and will contain configuration with the below format:

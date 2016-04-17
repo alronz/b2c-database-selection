@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Administration and Maintenance](Administration and Maintenance.md) > Configuration
 ___
-
-# Neo4j > Administration and Maintenance > Configuration
 
 
 A Neo4j database server instance can be started without providing a configuration file and then the default configuration options will be considered. If you want to change the server configuration options, you need to change the settings inside the configuration file conf/neo4j-server.properties. In this section, I will talk about some of the main configuration options that you might want to change. 

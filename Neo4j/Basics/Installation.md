@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Basics](Basics) > Installation
 ___
-
-# Neo4j > Basics > Installation
-
 
 
 In this section, I will explain how to install Neo4j in most of the popular operating systems such as windows, Linux and Mac OSX.

@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Basics](Basics) > Data Import and Export
 ___
-
-# Neo4j > Basics > Data Import and Export
 
 In case you have a huge data set that you want to insert into Neo4j at once such as when you want to migrate from another datasource, Cypher language supports loading data as parameters. These parameters can be either scalar values, maps, lists or lists of maps. The UNWIND clause can be used to help expanding the imported data and inserting it one by one to create the graph structure. You can also import easily a JSON data pulled from some API as seen below:
 

@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Upgrading
 ___
-
-# Cassandra > Administration and Maintenance > Upgrading
 
 
 I will explain in this section briefly the general steps that you need to follow to upgrade your Cassandra to a new version. The steps below needs to be executed in each of the nodes.
@@ -32,7 +30,7 @@ sudo service cassandra stop
 
 5- Take a copy of your current configuration file to be used later as a backup because this file might be overwritten with default values of the new Cassandra version.
 
-6- Install the new version. For more details, check the [installation section](../Getting Started/installation.md).
+6- Install the new version. For more details, check the [installation section](../Basics/Installation.md).
 
 7-  Configure the new version based on your old configurations and configure any new configurations for any new features.
 

@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Data Model](Data Model.md) > Relational Data Support
+
 ___
-
-# Cassandra > Data Model > Relational Data Support
 
 
 Cassandra doesn't support joins which are used in relational databases to model relationships. Therefore, as explained in the previous section, it is absolutely ok to denormalise your data by creating more than one table for your queries and duplicate the data in each one of them. In this section, I will explain how to model relationships in Cassandra by walking through one simple example from a B2C application domain. 

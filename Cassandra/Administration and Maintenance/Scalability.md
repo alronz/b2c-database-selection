@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Scalability
+
 ___
-
-# Cassandra > Administration and Maintenance > Scalability
-
 
 Cassandra uses a peer-to-peer distribution model, such that all nodes in a cluster have an equal importance and there is no concept for a master or a salve. This makes Cassandra design very scalable and highly available. This peer-to-peer design Improves the overall scalability since all the nodes in a cluster can serve read or write requests and there is no single point of failure.  Because all nodes can serve read and write requests, scaling the system is as simple as adding new node to the cluster. This makes Cassandra elastically scalable since you can easily scale up or down by just adding or removing nodes from the system.  Adding nodes to the cluster is also largely automated and has minimal configuration.  
 

@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+
+
+### [MongoDB ](../MongoDB.md) > [Query Model](Query Model.md) > Aggregation and Filtering
 ___
-
-# MongoDB > Query Model > Aggregation and Filtering
 
 
 In many use cases, we will need a way to aggregate values across multiple documents, compute some operations on the aggregated values and then return results.  MongoDB supports three ways to do just that, either through the pipeline aggregation framework, or by using the map reduce data processing paradigm or through some supported uses-specific functions such as distinct, group and count functions that have been already explained in [previous section.](Query Options.md)

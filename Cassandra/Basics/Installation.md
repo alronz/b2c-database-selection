@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Basics](Basics.md) > Installation
 ___
-
-# Cassandra > Basics > Installation
-
 
 Installing Cassandra is relatively easy and you can follow few steps to install it. Below are the step that can be followed to install Cassandra on most of the operating systems :
 

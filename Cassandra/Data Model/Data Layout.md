@@ -1,10 +1,7 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Data Model](Data Model.md) > Data Layout
 ___
-
-# Cassandra > Data Model > Data Layout
-
 
 Modelling your data in Cassandra is probably one of the most difficult tasks especially if you come from a relational database background. Before talking about how you can model your data in Cassandra and what are the best principles that we need to follow to come up with an efficient data model, I will talk about very important Cassandra concepts that impact your data model design.
 
@@ -53,7 +50,7 @@ But the below query will succeed:
 SELECT * from product_by_id_name where id =1 and name = "product_name" 
 ````
 
-As seen above, choosing the right partition key is so important to have a data model that will cover your query pattern. However, it is always possible to create secondary indexes on the fields that we want to query. More about creating indexes will be explained on a [later section](../Search Data/index.md).
+As seen above, choosing the right partition key is so important to have a data model that will cover your query pattern. However, it is always possible to create secondary indexes on the fields that we want to query. More about creating indexes will be explained on a [later section](../Query Model/Indexing.md).
 
 
 The partition key should be chosen so that it can be used to distribute the data equally across the nodes. If you choose the partition key to be a boolean value where it can be either true or false, then you will have only two large partitions that can impact scalability. Additionally, Cassandra has a limit on the data that can be written to a particular partition which is currently around 2 billion rows. In the same way, if you choose the partition key to be a so unique such as a UUID column, then each partition will contain only one row and the ordering will have no value.  Therefore, it is so important to choose the partition key so carefully to be not too high or too low. Besides if you choose a wrong partition key, it can results on an unbalanced partitions which leads to hot spot issues. For example if the partition key is the product category, then we might have partitions having many products while other partitions having only few products. Hence the partitions that contain many products will result on a hot spot nodes that receives most of the read and write request which impacts scalability.

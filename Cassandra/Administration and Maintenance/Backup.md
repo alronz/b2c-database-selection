@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Backup
 ___
-
-# Cassandra > Administration and Maintenance > Backup
 
 
 Cassandra supports taking backups through snapshots and by enabling the incremental backup feature. The snapshot is taken for the SSTable files in a node either for a single keyspace or for all keyspaces or even for the whole cluster. Generally, a system-wide snapshot is taken then the incremental backup feature is enabled in each node to backup only the delta data that has been changed since the last snapshot. 

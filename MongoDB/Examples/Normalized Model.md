@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+### [MongoDB ](../MongoDB.md) > [Examples](Examples.md) > Normalized Model
 ___
-
-# MongoDB > Examples > Normalized Model
 
 
 In this model, we are fully normalising the model as we might do in relational databases. In mongoDB, we can achieve this by using object references. The order document will have references (objectIDs) to the customer and lineitems documents as shown below:

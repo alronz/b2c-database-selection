@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Query Model](Query Model.md) > Sorting
 ___
 
-# Neo4j > Query Model > Sorting
 
 To sort the results returned by a query, Neo4j supports a SQL-like clause called ORDER BY which is used at the end of your query after the RETURN or WITH clauses. The ORDER BY clause will simply order the returned results based on a property field projected by the RETURN or WITH clauses. This means that you can only order what has been returned previously.
 

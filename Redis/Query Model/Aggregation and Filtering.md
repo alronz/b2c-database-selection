@@ -1,9 +1,9 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+
+### [Redis ](../Redis.md) > [Query Model](Query Model.md) > Aggregation and Filtering
 ___
-
-# Redis > Query Model > Aggregation and Filtering
 
 
 ###### Aggregation

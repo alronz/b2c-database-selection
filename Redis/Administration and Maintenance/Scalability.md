@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Administration and Maintenance](Administration and Maintenance.md) > Scalability
 ___
 
-# Redis > Administration and Maintenance > Scalability
 
 
 In this section we will talk about scalability in Redis. The section will be divided into four parts to explain how to scale reads, writes, configurations, and complex queries.

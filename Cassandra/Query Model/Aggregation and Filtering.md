@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Query Model](Query Model.md) > Aggregation and Filtering
 ___
-
-# Cassandra > Query Model > Aggregation and Filtering
-
 
 
 In this section, I will talk about how to filter and aggregate data in Cassandra.
@@ -14,10 +12,10 @@ In this section, I will talk about how to filter and aggregate data in Cassandra
 ##### Aggregation
 
 
-The data in Cassandra is grouped by the partition key and the clustering columns. The partition key can be simple (single column) or composite (multiple columns). Clustering columns are used to sort the data within the partition. Choosing the right grouping of your data can impact the read and write performance. For more details on how to choose the partition key and the clustering columns, please have a look to the [data layout section](../Data Modeling/data_layout.md).
+The data in Cassandra is grouped by the partition key and the clustering columns. The partition key can be simple (single column) or composite (multiple columns). Clustering columns are used to sort the data within the partition. Choosing the right grouping of your data can impact the read and write performance. For more details on how to choose the partition key and the clustering columns, please have a look to the [data layout section](../Data Model/Data Layout.md).
 
 
-Additionally, the data can be grouped in Cassandra using the collection data type. Cassandra supports the use of a list, map or a set data types that can be used to group multiple related data together. For example, you can store the address of a customer using the map data type.  It is also possible to use user-defined data types that can be complete objects which can be so useful to store related data together. For instance, you can store the supplier details of a product as a user defined data type inside the product table. For more details about the collection and user defined data types, please have a look to the [data layout section](../Data Modeling/data_layout.md).
+Additionally, the data can be grouped in Cassandra using the collection data type. Cassandra supports the use of a list, map or a set data types that can be used to group multiple related data together. For example, you can store the address of a customer using the map data type.  It is also possible to use user-defined data types that can be complete objects which can be so useful to store related data together. For instance, you can store the supplier details of a product as a user defined data type inside the product table. For more details about the collection and user defined data types, please have a look to the [data layout section](../Data Model/Data Layout.md).
 
 
 Cassandra also supports the Tuple data type which can be used to store two or more values together in a column. For example if you want to store the product table which contains the longitude and latitude values. Then you can store it in a single column having two float values as shown below:

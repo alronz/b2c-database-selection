@@ -1,12 +1,11 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Basics](Basics.md) > Query Language
+
 ___
 
-# Redis > Basics > Query Language
 
-
-In order to do operations on the values stored in Redis such as add, update, get or remove, a set of commands for each data type are provided. Those commands can be executed on [bulk](Pipline support.md) and a partial [transaction](Transaction Support.md) is supported  as will be explained later in details. Executing these commands can be done using the built-in client "redis-cli" or by using one of the supported [clients](http://redis.io/clients) specific for many programming languages. Redis has a relatively short list of commands that can be easily learned in few hours. In the following sections I will explain the popular commands for each data type including commands on the "key". For a complete list of all the commands available in Redis, please check [Redis documentation.](http://redis.io/commands).
+In order to do operations on the values stored in Redis such as add, update, get or remove, a set of commands for each data type are provided. Those commands can be executed on [bulk](Data Import and Export.md) and a partial [transaction](Transaction Support.md) is supported  as will be explained later in details. Executing these commands can be done using the built-in client "redis-cli" or by using one of the supported [clients](http://redis.io/clients) specific for many programming languages. Redis has a relatively short list of commands that can be easily learned in few hours. In the following sections I will explain the popular commands for each data type including commands on the "key". For a complete list of all the commands available in Redis, please check [Redis documentation.](http://redis.io/commands).
 
 
 #### Commands on Key
@@ -213,7 +212,7 @@ redis> SCARD myset
 (integer) 1
 ````
 
-"SDIFF,SDIFFSTORE,SINTER,SINTERSTORE,SUNION,SUNIONSTORE" are very important commands that can be executed on the sets to do group or filter the data inside different sets which will be covered on more details when discussing grouping and filtering data [later](../Search Data/filtering and grouping.md).
+"SDIFF,SDIFFSTORE,SINTER,SINTERSTORE,SUNION,SUNIONSTORE" are very important commands that can be executed on the sets to do group or filter the data inside different sets which will be covered on more details when discussing grouping and filtering data [later](../Query Model/Aggregation and Filtering.md).
 
 #### Commands on Sorted Sets
 

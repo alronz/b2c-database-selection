@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Basics](Basics.md) > Transaction Support
 ___
-
-# Cassandra > Basics > Transaction Support
-
 
 Before start discussing how transactions are supported in Cassandra, I will first explain briefly how Cassandra supports the ACID (Atomicity, Consistency, Isolation, Durability) properties.
 

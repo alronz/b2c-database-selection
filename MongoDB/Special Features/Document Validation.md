@@ -1,11 +1,6 @@
 
-[Home](../../index.md)
-
-[MongoDB Content](../MongoDB.md)
+### [MongoDB](../MongoDB.md) > [Special Features](Special Features.md) > Document Validation
 ___
-
-# MongoDB > Special Features > Document Validation
-
 
 Starting from MongoDB version 3.2, MongoDB supports a new feature called document validation. This is a useful feature that can be used to enforce some validation rules on the documents structure inside a particular collection. These rules will be checked when an insert or update is performed against the collection. If the validation rules have been violated, then an error or warning will be raised depending on the validationAction option. You can set the validation rules either when you create the collection using the db.createCollection() method with the validator option or with the collMod command with the validator option if the collection is already created. An example how to create a collection with some validation rules is shown below:
 

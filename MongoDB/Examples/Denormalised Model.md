@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Examples](Examples.md) > Denormalised Model
 ___
 
-# MongoDB > Examples > Denormalised Model
 
 In this model, we are modelling the TPC-H data model in one single document called order. The order will have all lineitems documents embedded inside it as shown below:
 

@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+
+### [Cassandra](../Cassandra.md) > [Query Model](Query Model.md) > Indexing
 ___
-
-# Cassandra > Query Model > Indexing
-
 
 Cassandra supports secondary indexes that are used to access the data using columns other than the primary key columns.  The indexes are built in the background by Cassandra without blocking writes or reads. The indexes provide efficient and fast lookup based on matching conditions for any secondary columns. 
 

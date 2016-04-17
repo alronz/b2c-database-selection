@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Basics](Basics) > Underline Structure
 ___
-
-# Neo4j > Basics > Underline Structure
 
 
 In this section, I will explain briefly the main concepts used in Neo4j.

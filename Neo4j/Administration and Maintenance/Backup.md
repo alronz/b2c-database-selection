@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+### [Neo4j](../Neo4j.md) > [Administration and Maintenance](Administration and Maintenance.md) > Backup
 ___
-
-# Neo4j > Administration and Maintenance > Backup
 
 Neo4j provides an online backup tool called neo4j-backup that will be enabled by default and will store a local copy of the database. To enable it in case it wasn't not enabled, you can set the configuration parameter online_backup_enabled to true. By default the backup tool will listen to the loopback local host and the port 6362 but you can listen to other database instance by setting the online_backup_server configuration parameter. The backup tool will take an incremental backup after taking the first backup.  For more configuration options related to the backup tool, please check the [documentations](http://neo4j.com/docs/stable/backup-introduction.html).
 

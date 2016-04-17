@@ -1,15 +1,11 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+### [MongoDB ](../MongoDB.md) > [Examples](Examples.md) > TPC-H Queries
 ___
-
-# MongoDB > Examples > TPC-H Queries
-
 
 In this example, I will show how we can model the data of a complete B2C application and how to write complex queries on this data model. I am going to use the data model used by the [TPC-H benchmark](http://www.tpc.org/tpch) which is shown below.
 
 
-![image](tpch_schema.png)
+![image](https://s3.amazonaws.com/b2cbucket/tpch_schema.png)
 
 
 The idea behind this example is to show how to use MongoDB to design a real B2C application data model and how to write advance SQL queries with joins, grouping and sorting using MongoDB query language. I have chosen three queries from the TPCH benchmark that I think will cover most of the common query capabilities of SQL. The chosen queries are Q1, Q3 and Q4 as will be explained in the following sections.
@@ -23,9 +19,9 @@ The complete code of this example can be found in Github along with the steps on
 
 To model this schema using MongoDB, we can either use a denormalised model,a normalised model or a combination of both. To show the impact of data modelling in queries expressiveness, I have modelled the schema using all three models:
 
- - [A fully denormalised model](denormalised_model.md).
- - [A fully normalised model](normalized_model.md).
- - [A mix of normalised and denormalised models](mixed_model.md). 
+ - [A fully denormalised model](Denormalised Model.md).
+ - [A fully normalised model](Normalized Model.md).
+ - [A mix of normalised and denormalised models](Mixed Model.md). 
  
  
  

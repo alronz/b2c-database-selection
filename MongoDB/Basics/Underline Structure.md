@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[MongoDB Content](../MongoDB.md)
+
+
+### [MongoDB ](../MongoDB.md) > [Basics](Basics.md) > Underline Structure
 ___
-
-# MongoDB > Basics > Underline Structure
-
 
 MongoDB stores its data as documents which is a data structure similar to the structures that maps values to keys such as hashes and dictionaries. These documents contain a JSON like data or what is called a BSON data. Many documents can be grouped into a one container called a collection which is similar to the table concept in the traditional databases. 
 

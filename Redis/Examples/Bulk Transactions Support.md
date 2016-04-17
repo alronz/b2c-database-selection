@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Bulk Transactions Support
 ___
-
-# Redis > Examples > Bulk Transactions Support
-
 
 In this example, a service was built to show how to execute a batch of commands at the same time. Assuming we want to add all existing logged in customers to a VIP set, then we can do that using a pipeline feature of Redis and execute multiple commands together as shown in the below API implementation:
 

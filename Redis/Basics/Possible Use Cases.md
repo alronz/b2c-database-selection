@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis ](../Redis.md) > [Basics](Basics.md) > Possible Use Cases
 ___
-
-# Redis > Basics > Possible Use Cases
 
 
 Generally many users prefer to choose redis or any other in-memory database to store their data only when performance or the supported data structures used in Redis is necessary. Otherwise they tend to use other databases for data where slower performance is not a problem or when the data is so big to fit in memory economically. 

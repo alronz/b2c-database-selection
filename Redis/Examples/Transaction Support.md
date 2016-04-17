@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+### [Redis ](../Redis.md) > [Examples](Examples.md) > Transaction Support
 ___
-
-# Redis > Examples > Transaction Support
 
 
 In this example, we show how we can execute command in a transaction using the MULTI/EXEC/WATCH/UNWATCH commands. In this example, we try to execute a transaction where we take a product from the inventory of the seller and put in the bought list of the customer. The code is shown below:

@@ -1,10 +1,8 @@
-[Home](../../index.md)
 
-[Neo4j Content](../Neo4j.md)
+
+
+### [Neo4j](../Neo4j.md) > [Data Model](Data Model.md) > Data Layout
 ___
-
-# Neo4j > Data Model > Data Layout
-
 
 Neo4j is based on the property graph model which is similar to an entity relationship diagram. The property graph model is composed of a set of nodes that are connected by relationships. As seen below, the nodes acts as entities that have one or more attributes stored as properties. They can be tagged with one or more labels to distinguish them from other nodes and speed up queries. Relationships can have properties as well and can be tagged with only one relationship type. Relationships must have a start and end node and will be deleted if one of the attached nodes are removed. 
 

@@ -1,9 +1,7 @@
-[Home](../../index.md)
 
-[Cassandra Content](../Cassandra.md)
+
+### [Cassandra](../Cassandra.md) > [Administration and Maintenance](Administration and Maintenance.md) > Availability
 ___
-
-# Cassandra > Administration and Maintenance > Availability
 
 
 Cassandra is a highly available distributed system. This is because You can easily replicate your data across multiple nodes or even data centres that spans multiple locations. Replicating the data prevents downtime in case the node or the data centre experiences a catastrophic event or an unexpected failure since the data can be still served from the replica nodes. 

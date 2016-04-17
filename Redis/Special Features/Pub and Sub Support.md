@@ -1,9 +1,8 @@
-[Home](../../index.md)
 
-[Redis Content](../Redis.md)
+
+
+### [Redis](../Redis.md) > [Special Features](Special Features.md) > Pub and Sub Support
 ___
-
-# Redis > Special Features > Pub and Sub Support
 
 
 This is a special feature of Redis that can be used to implement many applications. The idea is mainly characterised by listeners who can subscribe to certain channels to receive real time messages. The publishers can send binary messages of type string to channels without having any knowledge of whether there are subscribers or not. This feature is following the publish/subscribe messaging paradigm. For example if a subscriber issue the below command:
